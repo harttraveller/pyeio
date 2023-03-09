@@ -1,0 +1,50 @@
+site_name: pyeio
+repo_url: https://github.com/cephalon-intelligence/pyeio
+repo_name: cephalon-intelligence/pyeio
+
+plugins:
+- search
+
+theme:
+  name: material
+  custom_dir: overrides
+  logo: assets/logo.pyeio.small.png
+  favicon: assets/logo.pyeio.small.png
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    scheme: slate
+    primary: black
+    accent: orange
+  features:
+  - search.suggest
+  - search.share
+  - content.code.copy
+  - content.code.annotate
+
+extra_css:
+- stylesheets/extra.css
+
+markdown_extensions:
+- md_in_html
+- admonition
+- pymdownx.details
+- pymdownx.inlinehilite
+- pymdownx.snippets
+- pymdownx.superfences
+- pymdownx.highlight:
+    anchor_linenums: true
+    use_pygments: true
+- pymdownx.tasklist:
+    custom_checkbox: true
+- pymdownx.tabbed:
+    alternate_style: true
+
+nav:
+- About: "index.md"
+- Quickstart: "quickstart.md"
+- Details:
+  - Installation: "installation.md"
+  - Tutorial: "tutorial.md"
+- Reference:
+  - Placeholder: "reference.md"

@@ -1,0 +1,4 @@
+pytest
+mkdocs-material
+pathlib
+ipykernel

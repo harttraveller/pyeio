@@ -1,0 +1,27 @@
+p {
+    text-align: justify;
+}
+
+.md-source__facts {
+    display: none;
+}
+
+.md-content ul, ol  {
+    line-height: 1.2em;
+}
+
+.task-list-indicator {
+    position: relative;
+    top: -3px;
+}
+
+
+:root > * {
+    --md-code-hl-string-color: #37d278;
+    --md-code-hl-name-color: rgb(237, 154, 149);
+    --md-code-hl-operator-color: rgb(124, 213, 233);
+    --md-code-hl-punctuation-color: white;
+    --md-code-hl-comment-color: rgb(163, 163, 163);
+    --md-code-hl-generic-color: rgb(214, 123, 222);
+    --md-code-hl-variable-color: rgb(237, 178, 77);
+  }
