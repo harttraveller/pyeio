@@ -1,6 +1,6 @@
 <div align="center">
 <a href="https://harttraveller.com/pyeio" target="_blank">
-<img src="docs/assets/pyeio-large.png" width=200>
+<img src="https://raw.githubusercontent.com/harttraveller/pyeio/main/docs/assets/pyeio-large.png" width=200>
 </a>
 </div>
 <br>
