@@ -4,7 +4,7 @@
 
 <div align="center">
 <a href="https://github.com/cephalon-intelligence/pyeio" target="_blank">
-<img src="assets/logo.pyeio.large.png" width=64 style="position: relative; left: -20px;">
+<img src="assets/pyeio-large.png" width=64 style="position: relative; left: -20px;">
 </a>
 <a href="https://www.python.org/downloads" target="_blank">
 <img src="https://img.shields.io/badge/python-3.10-blue" height=20 style="position: relative; top: -20px;">
