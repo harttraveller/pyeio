@@ -13,6 +13,10 @@
 
 Short for `Py`thon `E`asy `I`nput `O`utput, `pyeio` is a python library meant to simplify file IO processes.
 
+```bash
+pip install pyeio
+```
+
 For example, you can use it to avoid rewriting the code below hundreds of times.
 
 ```python
