@@ -1,5 +1,5 @@
 <div align="center">
-<a href="https://docs.cephalon.io/pyeio" target="_blank">
+<a href="https://harttraveller.com/pyeio" target="_blank">
 <img src="docs/assets/logo.pyeio.large.png" width=200>
 </a>
 </div>
@@ -63,13 +63,13 @@ First clone the repository. You can do this using SSH, or HTTPS. I recommend SSH
 **SSH**
 
 ```bash
-git clone git@github.com:cephalon-intelligence/pyeio.git
+git clone git@github.com:harttraveller/pyeio.git
 ```
 
 **HTTPS**
 
 ```bash
-git clone https://github.com/cephalon-intelligence/pyeio.git
+git clone https://github.com/harttraveller/pyeio.git
 ```
 
 Next install the package with `pip`. The `setup.py` package contains the requirements for basic functionality, however the `requirements.txt` file also includes requirements for testing and using the notebooks.
