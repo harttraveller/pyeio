@@ -57,21 +57,6 @@ from pyeio import easy
 
 ## Tutorial
 
-### Load Files
-
-```json title="Input JSON File"
-[1, 2, 3, 4, 5, 6]
-```
-
-```python title="Python Code"
-data = easy.load("example.json")
-```
-
-```bash title="Data & Type"
-[1, 2, 3, 4, 5, 6] <class 'list'>
-```
-
-
 ### Save Files
 
 ```python title="Input Dictionary"
@@ -105,6 +90,20 @@ easy.save("example.csv")
 apples, 3
 oranges, 4
 bananas, 5
+```
+
+### Load Files
+
+```json title="Input JSON File"
+[1, 2, 3, 4, 5, 6]
+```
+
+```python title="Python Code"
+data = easy.load("example.json")
+```
+
+```bash title="Data & Type"
+[1, 2, 3, 4, 5, 6] <class 'list'>
 ```
 
 
