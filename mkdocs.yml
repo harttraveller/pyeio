@@ -44,7 +44,7 @@ markdown_extensions:
 
 
 nav:
-- About: "index.md"
+- Docs: "index.md"
 
 
 
