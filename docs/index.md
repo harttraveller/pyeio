@@ -81,9 +81,16 @@ easy.save(data, "example.json")
 
 ### Save Custom Format
 
+```python title="Input Dictionary"
+data = {
+    "apples": 3,
+    "oranges": 4,
+    "bananas": 5
+}
+```
 
 ```python title="Python Code"
-easy.save("example.csv")
+easy.save(data, "example.csv")
 ```
 
 ```python title="Output CSV File"
