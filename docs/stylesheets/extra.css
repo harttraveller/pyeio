@@ -186,3 +186,11 @@ img {
 .md-source__repository.md-source__repository--active {
     display: none;
 }
+
+code {
+    color: lightgreen !important;
+}
+
+.md-search__form {
+    background-color: black !important;
+}

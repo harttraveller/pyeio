@@ -1,5 +1,10 @@
 # Installation
 
+
+```shell title="Installation"
+pip install pyeio
+```
+
 ## Requirements
 
 **System**
