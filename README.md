@@ -6,8 +6,7 @@
 <br>
 <div align="center">
 
-![Python](https://img.shields.io/badge/python-3.10-blue) ![GitHub](https://img.shields.io/badge/license-MIT-blue) ![GitHub repo size](https://img.shields.io/github/repo-size/cephalon-intelligence/pyeio) ![Code Style](https://img.shields.io/badge/code%20style-black-black) ![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fdocs.cephalon.io%2Fpyeio) ![Discord](https://img.shields.io/discord/1031729144360357919)
-
+![Python](https://img.shields.io/badge/python-3.10-blue) ![GitHub](https://img.shields.io/badge/license-MIT-blue) ![GitHub repo size](https://img.shields.io/github/repo-size/harttraveller/pyeio) ![Code Style](https://img.shields.io/badge/code%20style-black-black)
 </div>
 
 # pyeio
