@@ -1,6 +1,12 @@
+---
+hide:
+- navigation
+---
+
 <style>
 .md-typeset h1 {display: none;}
 </style>
+
 
 <div align="center">
 <img src="assets/pyeio-large.png" width=64 style="position: relative; left: -8px;">
@@ -20,22 +26,103 @@
 
 <br>
 
-!!! warning "Status: Under Development"
+??? warning "Status: Under Development"
+    I plan on addding formats as they are needed for relevant development purposes.
 
-!!! abstract "Description"
-    Python Easy Input Output is a Python library meant to simplify file IO processes. The primary benefit is the ability to load and save different file formats with just those methods. I plan to add formats as they are needed for my own development purposes.
+## Overview
 
+Python Easy Input Output is a Python library meant to simplify file IO processes. The primary benefit is the ability to load and save different file formats with just the `load` and `save` methods.
 
-```python title="Before"
-import json
-with open("data.json", "r") as file:
-    data = json.load(file)
-file.close()
+=== "Before"
+    ```python
+    import json
+    with open("data.json", "r") as file:
+        data = json.load(file)
+    file.close()
+    ```
+
+=== "After"
+    ```python
+    from pyeio import easy
+    data = easy.load("data.json")
+    ```
+
+```bash title="Installation"
+pip install pyeio
 ```
 
-```python title="After"
+```python title="Import"
 from pyeio import easy
-data = easy.load("data.json")
 ```
 
+## Tutorial
+
+### Load Files
+
+```json title="Input JSON File"
+[1, 2, 3, 4, 5, 6]
+```
+
+```python title="Python Code"
+data = easy.load("example.json")
+```
+
+```bash title="Data & Type"
+[1, 2, 3, 4, 5, 6] <class 'list'>
+```
+
+
+### Save Files
+
+```python title="Input Dictionary"
+data = {
+    "apples": 3,
+    "oranges": 4,
+    "bananas": 5
+}
+```
+
+```python title="Python Code"
+easy.save(data, "example.json")
+```
+
+```json title="Output JSON File"
+{
+    "apples": 3,
+    "oranges": 4,
+    "bananas": 5
+}
+```
+
+### Save Custom Format
+
+
+```python title="Python Code"
+easy.save("example.csv")
+```
+
+```python title="Output CSV File"
+apples, 3
+oranges, 4
+bananas, 5
+```
+
+
+### Load Custom Types
+
+```python title="Additional Import"
+from pyeio import kind
+```
+
+```json title="Input JSON File"
+[1, 2, 3, 4, 5, 6]
+```
+
+```python title="Python Code"
+data = easy.load("example.json", astype=kind.numpy.array)
+```
+
+```bash title="Data & Type"
+[1 2 3 4 5 6] <class 'numpy.ndarray'>
+```
 
