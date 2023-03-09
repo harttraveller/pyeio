@@ -194,3 +194,8 @@ code {
 .md-search__form {
     background-color: black !important;
 }
+
+.md-typeset .admonition-title:before, .md-typeset summary:before {
+    position: absolute;
+    top: 7px;
+}

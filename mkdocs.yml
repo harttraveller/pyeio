@@ -45,6 +45,7 @@ markdown_extensions:
 
 nav:
 - About: "index.md"
+- Quickstart: "quickstart.md"
 
 
 
