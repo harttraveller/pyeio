@@ -1,9 +1,10 @@
 site_name: pyeio
-repo_url: https://github.com/cephalon-intelligence/pyeio
-repo_name: cephalon-intelligence/pyeio
+repo_name: harttraveller/pyeio
+repo_url: "https://github.com/harttraveller/pyeio"
 
 plugins:
 - search
+- glightbox
 
 theme:
   name: material
@@ -17,6 +18,8 @@ theme:
     primary: black
     accent: orange
   features:
+  - navigation.tracking
+  - navigation.instant
   - search.suggest
   - search.share
   - content.code.copy
@@ -28,6 +31,7 @@ extra_css:
 markdown_extensions:
 - md_in_html
 - admonition
+- attr_list
 - pymdownx.details
 - pymdownx.inlinehilite
 - pymdownx.snippets
@@ -40,11 +44,10 @@ markdown_extensions:
 - pymdownx.tabbed:
     alternate_style: true
 
+
 nav:
 - About: "index.md"
-- Quickstart: "quickstart.md"
-- Details:
-  - Installation: "installation.md"
-  - Tutorial: "tutorial.md"
-- Reference:
-  - Placeholder: "reference.md"
+
+
+
+
