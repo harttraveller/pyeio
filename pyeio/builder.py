@@ -62,6 +62,16 @@ class JSON:
         file.close()
 
 
+class JSONL:
+    @staticmethod
+    def load(path: str | Path) -> list:
+        return JSON.load(path)
+
+    @staticmethod
+    def save(data: list, path: str | Path) -> None:
+        JSON.save(data, path)
+
+
 class NPY:
     pass
 
@@ -192,6 +202,7 @@ class IO:
 
     def __init_interface_subclasses(self) -> None:
         self.json = JSON()
+        self.jsonl = JSONL()
         self.csv = CSV()
         self.xlsx = XLSX()
         self.yaml = YAML()
