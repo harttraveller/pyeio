@@ -4,7 +4,7 @@ Primary interface class
 
 from pathlib import Path
 from typing import Any, Callable
-from pyeio.core import IO
+from pyeio.form import JSON, JSONL
 
 
 class EIO:
@@ -13,7 +13,8 @@ class EIO:
         self.__init_methods()
 
     def __init_interfaces(self) -> None:
-        pass
+        self.json = JSON()
+        self.jsonl = JSONL()
 
     def __init_methods(self) -> None:
         self._id = {
@@ -24,9 +25,6 @@ class EIO:
     @property
     def formats(self) -> set[str]:
         return set(self._id.keys())
-
-    def __init__(self) -> None:
-        self.io = IO()
 
     def load(self, path: str | Path, astype: Callable | None = None) -> Any:
         """
