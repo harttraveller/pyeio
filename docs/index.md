@@ -167,3 +167,4 @@ data = easy.load("example.json", astype=kind.numpy.array)
 - bin
 - toml
 - yaml
+- zst
