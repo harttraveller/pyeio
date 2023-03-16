@@ -159,3 +159,11 @@ data = easy.load("example.json", astype=kind.numpy.array)
 - mat
 - npy
 - npz
+- 7z
+- graphml
+- js
+- py
+- null (no extension, assumed binary or text)
+- bin
+- toml
+- yaml
