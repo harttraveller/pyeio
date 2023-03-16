@@ -32,4 +32,7 @@ class JSONL:
 
     @staticmethod
     def save(data: list, path: str | Path) -> None:
-        JSON.save(data, path)
+        with open(path, "w") as file:
+            for line in data:
+                file.write(json.dumps(line) + "\n")
+        file.close()
