@@ -168,3 +168,5 @@ data = easy.load("example.json", astype=kind.numpy.array)
 - toml
 - yaml
 - zst
+- sql
+- sqlitedict
