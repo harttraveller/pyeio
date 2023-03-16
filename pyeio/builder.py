@@ -7,28 +7,6 @@ import json
 from typing import Any
 
 
-class Query:
-    @staticmethod
-    def file_name(path: str | Path) -> str:
-        "get file name from path"
-        return str(path).split("/")[-1]
-
-    @staticmethod
-    def file_format(path: str | Path) -> str:
-        "get file format from path"
-        return Query.file_name(path).split(".")[-1]
-
-    @staticmethod
-    def file_size(path: str | Path) -> int:
-        "get file size in bytes from path"
-        raise NotImplementedError()
-
-    @staticmethod
-    def data_type(obj: Any) -> str:
-        "get object type as string"
-        return str(type(obj)).split("'")[-2]
-
-
 class Transform:
     def __init__(self) -> None:
         self.__init_transform_dict()
@@ -48,6 +26,7 @@ class Transform:
 
 
 class JSON:
+    # TODO: add automatic checks for jsonl files
     @staticmethod
     def load(path: str | Path) -> dict | list:
         with open(path, "r") as file:
@@ -65,7 +44,11 @@ class JSON:
 class JSONL:
     @staticmethod
     def load(path: str | Path) -> list:
-        return JSON.load(path)
+        with open(path, "r") as file:
+            try:
+                data = [json.loads(line) for line in file.splitlines()]
+            except:
+                raise Exception("asdf")
 
     @staticmethod
     def save(data: list, path: str | Path) -> None:
