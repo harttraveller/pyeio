@@ -8,7 +8,7 @@ TODO (maybe)
 
 from pathlib import Path
 from typing import Any
-from pyeio.utils import file_format, data_type
+from pyeio.utils import file_format
 from pyeio.form import JSON, JSONL
 
 
