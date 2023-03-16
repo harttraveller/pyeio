@@ -42,8 +42,8 @@ class EIO:
             Any: Loaded data object.
         """
         fmt = file_format(path)
-        # TODO: add proper exception here
-        assert fmt in self.formats, "unsupported file format"
+        if fmt not in self.formats:
+            raise ValueError("Unsupported file format.")
         data = self.__methods[fmt]["load"](path)
         return data
 
