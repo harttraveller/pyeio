@@ -8,6 +8,7 @@ TODO (maybe)
 
 from pathlib import Path
 from typing import Any
+from pyeio.utils import file_format
 from pyeio.form import JSON, JSONL
 
 
@@ -32,32 +33,29 @@ class EIO:
 
     def load(self, path: str | Path) -> Any:
         """
-        Description
+        Load a file into memory.
 
         Args:
-            path (str | Path): _description_
-            form (str, optional): _description_. Defaults to "auto".
+            path (str | Path): Path to file.
 
         Returns:
-            Any: _description_
+            Any: Loaded data object.
         """
-        file_format = self.io.query.file_format(path)
-        assert file_format in self.io.formats, "unsupported file format"
-        data = self.__methods[file_format]["load"](path)
+        fmt = file_format(path)
+        # TODO: add proper exception here
+        assert fmt in self.formats, "unsupported file format"
+        data = self.__methods[fmt]["load"](path)
         return data
 
     def save(self, data: Any, path: str | Path) -> None:
         """
-        Description
+        Save a file in memory to disk.
 
         Args:
-            data (Any): _description_
-            path (str | Path): _description_
-
-        Notes:
-            - Auto detects save type based on file extension.
+            data (Any): Data object to save.
+            path (str | Path): Path to save data at.
         """
-        target = self.io.query.file_format(path)
+        target = file_format(path)
         assert target in self.io.formats, "unsupported file format"
         kind = self.io.query.data_type(data)
         assert self.io.transform.valid(target, kind), "invalid target format"
