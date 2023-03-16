@@ -1,3 +1,3 @@
-from pyeio.director import EIO
+from pyeio.core import EIO
 
 easy = EIO()
