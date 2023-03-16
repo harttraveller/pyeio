@@ -1,5 +1,9 @@
 """
 Primary interface class
+
+TODO (maybe)
+- add callable to convert or transform data types and formats in easy call
+    - add **kwargs to customize the transformation (ie: for loading dataframe with list orientation)
 """
 
 from pathlib import Path
@@ -17,16 +21,16 @@ class EIO:
         self.jsonl = JSONL()
 
     def __init_methods(self) -> None:
-        self._id = {
+        self.__methods = {
             "json": {"save": self.json.save, "load": self.json.load},
             "jsonl": {"save": self.jsonl.save, "load": self.jsonl.load},
         }
 
     @property
     def formats(self) -> set[str]:
-        return set(self._id.keys())
+        return set(self.__methods.keys())
 
-    def load(self, path: str | Path, astype: Callable | None = None) -> Any:
+    def load(self, path: str | Path) -> Any:
         """
         Description
 
@@ -39,11 +43,8 @@ class EIO:
         """
         file_format = self.io.query.file_format(path)
         assert file_format in self.io.formats, "unsupported file format"
-        data = self.io._id[file_format]["load"](path)
-        if astype is None:
-            return data
-        else:
-            return astype(data)
+        data = self.__methods[file_format]["load"](path)
+        return data
 
     def save(self, data: Any, path: str | Path) -> None:
         """
@@ -60,5 +61,5 @@ class EIO:
         assert target in self.io.formats, "unsupported file format"
         kind = self.io.query.data_type(data)
         assert self.io.transform.valid(target, kind), "invalid target format"
-        data = self.io.transform._td[target][kind](data)
+        data = self.io.transform.__methods[target][kind](data)
         self.io._id[target]["save"](data, path)
