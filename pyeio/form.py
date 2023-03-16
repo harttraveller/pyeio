@@ -2,9 +2,8 @@
 Data format IO builder classes
 """
 
-from pathlib import Path
 import json
-from typing import Any
+from pathlib import Path
 
 
 class JSON:
@@ -27,10 +26,9 @@ class JSONL:
     @staticmethod
     def load(path: str | Path) -> list:
         with open(path, "r") as file:
-            try:
-                data = [json.loads(line) for line in file.splitlines()]
-            except:
-                raise Exception("asdf")
+            data = [json.loads(line) for line in file.splitlines()]
+        file.close()
+        return data
 
     @staticmethod
     def save(data: list, path: str | Path) -> None:
