@@ -47,31 +47,6 @@ class Transform:
         return data_type in self._td[target_format]
 
 
-class IO:
-    def __init__(self):
-        self.__init_utility_subclasses()
-        self.__init_interface_subclasses()
-        self.__init_interface_dict()
-
-    def __init_utility_subclasses(self) -> None:
-        self.query = Query()
-        self.transform = Transform()
-
-    def __init_interface_subclasses(self) -> None:
-        self.json = JSON()
-        self.csv = CSV()
-        self.xlsx = XLSX()
-        self.yaml = YAML()
-        self.toml = TOML()
-
-    def __init_interface_dict(self) -> None:
-        self._id = {"json": {"save": self.json.save, "load": self.json.load}}
-
-    @property
-    def formats(self) -> set[str]:
-        return set(self._id.keys())
-
-
 class JSON:
     @staticmethod
     def load(path: str | Path) -> dict | list:
@@ -193,7 +168,7 @@ class GRAPHML:
         pass
 
 
-class SZ:
+class SEVENZIP:
     "7 zip, can't start class name with number"
 
     @staticmethod
@@ -203,3 +178,28 @@ class SZ:
     @staticmethod
     def save(data: Any, path: str | Path) -> None:
         pass
+
+
+class IO:
+    def __init__(self):
+        self.__init_utility_subclasses()
+        self.__init_interface_subclasses()
+        self.__init_interface_dict()
+
+    def __init_utility_subclasses(self) -> None:
+        self.query = Query()
+        self.transform = Transform()
+
+    def __init_interface_subclasses(self) -> None:
+        self.json = JSON()
+        self.csv = CSV()
+        self.xlsx = XLSX()
+        self.yaml = YAML()
+        self.toml = TOML()
+
+    def __init_interface_dict(self) -> None:
+        self._id = {"json": {"save": self.json.save, "load": self.json.load}}
+
+    @property
+    def formats(self) -> set[str]:
+        return set(self._id.keys())
