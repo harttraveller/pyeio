@@ -31,7 +31,7 @@ class EIO:
     def formats(self) -> set[str]:
         return set(self.__methods.keys())
 
-    def __check_supported(self, fmt: str) -> None:
+    def _check_supported(self, fmt: str) -> None:
         if fmt not in self.formats:
             raise ValueError("Unsupported file format.")
 
@@ -47,11 +47,11 @@ class EIO:
             Any: Loaded data object.
         """
         fmt = file_format(path)
-        self.__check_supported(fmt)
+        self._check_supported(fmt)
         if custom is None:
             data = self.__methods[fmt]["load"](path)
         else:
-            self.__check_supported(custom)
+            self._check_supported(custom)
             data = self.__methods[custom]["load"](path)
         return data
 
@@ -65,9 +65,9 @@ class EIO:
             custom (str | None): Save a non extension aligned file. Defaults to None.
         """
         fmt = file_format(path)
-        self.__check_supported(fmt)
+        self._check_supported(fmt)
         if custom is None:
             self.__methods[fmt]["save"](data, path)
         else:
-            self.__check_supported(custom)
+            self._check_supported(custom)
             self.__methods[custom]["save"](data, path)
