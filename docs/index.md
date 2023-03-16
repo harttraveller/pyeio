@@ -132,3 +132,30 @@ data = easy.load("example.json", astype=kind.numpy.array)
 [1 2 3 4 5 6] <class 'numpy.ndarray'>
 ```
 
+## File Formats
+### Implemented
+- json
+
+### Priority
+- jsonl
+
+
+### Backlog
+- csv
+- xlsx
+- txt
+- pickle
+- hdf5
+- db
+- sqlite
+- html
+- zip
+- gz
+- pdf
+- docx
+- png
+- jpg
+- jpeg
+- mat
+- npy
+- npz
