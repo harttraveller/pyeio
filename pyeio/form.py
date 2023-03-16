@@ -26,7 +26,7 @@ class JSONL:
     @staticmethod
     def load(path: str | Path) -> list:
         with open(path, "r") as file:
-            data = [json.loads(line) for line in file.splitlines()]
+            data = [json.loads(line) for line in file.readlines()]
         file.close()
         return data
 
