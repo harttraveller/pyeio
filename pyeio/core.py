@@ -35,29 +35,39 @@ class EIO:
         if fmt not in self.formats:
             raise ValueError("Unsupported file format.")
 
-    def load(self, path: str | Path) -> Any:
+    def load(self, path: str | Path, custom: str | None = None) -> Any:
         """
         Load a file into memory.
 
         Args:
             path (str | Path): Path to file.
+            custom (str | None): Load a non extension aligned file. Defaults to None.
 
         Returns:
             Any: Loaded data object.
         """
         fmt = file_format(path)
         self.__check_supported(fmt)
-        data = self.__methods[fmt]["load"](path)
+        if custom is None:
+            data = self.__methods[fmt]["load"](path)
+        else:
+            self.__check_supported(custom)
+            data = self.__methods[custom]["load"](path)
         return data
 
-    def save(self, data: Any, path: str | Path) -> None:
+    def save(self, data: Any, path: str | Path, custom: str | None = None) -> None:
         """
         Save a file in memory to disk.
 
         Args:
             data (Any): Data object to save.
             path (str | Path): Path to save data at.
+            custom (str | None): Save a non extension aligned file. Defaults to None.
         """
         fmt = file_format(path)
         self.__check_supported(fmt)
-        self.__methods[fmt]["save"](data, path)
+        if custom is None:
+            self.__methods[fmt]["save"](data, path)
+        else:
+            self.__check_supported(custom)
+            self.__methods[custom]["save"](data, path)
