@@ -24,9 +24,6 @@ ul {
     font-size: 14px;
 }
 
-
-
-
 a {
     transition: ease 0.3s !important;
 }
@@ -124,7 +121,7 @@ ol {
     transition: 1s;
     border-radius: 6px;
     color: #6C91D5;
-    margin-right: -7px;
+    margin-right: -10px;
 }
 
 .md-tabs__link:hover {
