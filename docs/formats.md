@@ -3,16 +3,15 @@ hide:
 - navigation
 ---
 
-## File Formats
-### Implemented
+# Formats
+## Implemented
 - json
 
-### Priority
+## Priority
 - jsonl
 - toml
 
-
-### Backlog
+## Backlog
 - csv
 - xlsx
 - txt
