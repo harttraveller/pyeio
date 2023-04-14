@@ -44,9 +44,7 @@ markdown_extensions:
 - pymdownx.tabbed:
     alternate_style: true
 
-
 nav:
-- Introduction: "index.md"
-- Installation: "installation.md"
+- About: "index.md"
 - Examples: "examples.md"
 - Formats: "formats.md"
