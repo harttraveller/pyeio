@@ -5,6 +5,8 @@ hide:
 
 # Examples
 
+<p style="color: red;">Examples are currently outdated, this will be updated soon.</p>
+
 ## Save Files
 
 ```python title="Input Dictionary"
