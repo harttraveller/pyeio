@@ -3,7 +3,20 @@ hide:
 - navigation
 ---
 
-<div align="left">
+# Introduction
+
+Python Easy Input Output is a Python library meant to simplify file IO processes. It provides the ability to load and save different file formats with just the `load` and `save` methods.
+
+```bash title="Installation"
+pip install pyeio
+```
+
+```python title="Usage"
+from pyeio import easy
+data = easy.load("data.json")
+```
+
+<div align="center">
 <a href="https://github.com/harttraveller/pyeio" target="_blank">
 <img src="assets/github.png" width=20 style="position: relative; left: 0px;">
 </a>
@@ -20,21 +33,3 @@ hide:
 <img src="https://img.shields.io/badge/code%20style-black-black" height=20 style="position: relative;">
 </a>
 </div>
-
-<br>
-
-# Introduction
-
-Python Easy Input Output is a Python library meant to simplify file IO processes. The primary benefit is the ability to load and save different file formats with just the `load` and `save` methods.
-
-<br>
-
-```bash title="Installation"
-pip install pyeio
-```
-
-```python title="Usage"
-from pyeio import easy
-data = easy.load("data.json")
-```
-
