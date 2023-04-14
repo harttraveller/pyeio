@@ -36,6 +36,7 @@ class JSONL:
                 file.write(json.dumps(line) + "\n")
         file.close()
 
+
 class TOML:
     @staticmethod
     def load(path: str | Path) -> dict:
