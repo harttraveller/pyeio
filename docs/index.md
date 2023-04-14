@@ -47,6 +47,8 @@ Python Easy Input Output is a Python library meant to simplify file IO processes
     data = easy.load("data.json")
     ```
 
+## Quickstart
+
 ```bash title="Installation"
 pip install pyeio
 ```
@@ -138,6 +140,7 @@ data = easy.load("example.json", astype=kind.numpy.array)
 
 ### Priority
 - jsonl
+- toml
 
 
 ### Backlog
@@ -165,8 +168,10 @@ data = easy.load("example.json", astype=kind.numpy.array)
 - py
 - null (no extension, assumed binary or text)
 - bin
-- toml
 - yaml
 - zst
 - sql
 - sqlitedict
+- py
+- js
+- rs
