@@ -71,3 +71,7 @@ class EIO:
         else:
             self._check_supported(custom)
             self.__methods[custom]["save"](data, path)
+
+    def add(self, data: Any, path: str | Path, custom: str | None = None) -> None:
+        # TODO: method for adding data, eg: writing at end of jsonl or adding to sqlite db
+        pass
