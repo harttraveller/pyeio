@@ -5,7 +5,7 @@ hide:
 
 # Introduction
 
-Python Easy Input Output is a Python library meant to simplify file IO processes. It provides the ability to load and save different file formats with just the `load` and `save` methods.
+Python Easy Input Output is a Python library meant to simplify file IO processes. It provides the ability to load and save different file formats with just the `load` and `save` methods. The required python dependencies can be found in the [setup.py]() file, and the developer dependencies are listed in the [requirements.txt]() file in the repository.
 
 <br>
 
@@ -27,11 +27,7 @@ Python Easy Input Output is a Python library meant to simplify file IO processes
 </a>
 </div>
 
-## Installation
-
-You can install the package as a user or to develop the package. The required python dependencies can be found in the [setup.py]() file in the repository. The developer python dependencies are listed in the [requirements.txt]() file in the repository.
-
-### User Installation
+## User Installation
 
 Install the current version of `pyeio` with `pip`.
 
@@ -45,7 +41,7 @@ To upgrade to a newer release use the `--upgrade` flag.
 pip install pyeio --upgrade
 ```
 
-### Developer Installation
+## Developer Installation
 
 First clone the repository. You can do this using SSH, or HTTPS. I recommend SSH, as it's more secure.
 
@@ -76,7 +72,7 @@ pip install -r requirements.txt
 pip install -e . --upgrade
 ```
 
-### Running Tests
+## Running Tests
 
 The package uses `pytest` for testing. You can learn more about pytest on their [homepage](https://pytest.org/). To run the tests, you can run the following command.
 
