@@ -75,3 +75,24 @@ class EIO:
     def add(self, data: Any, path: str | Path, custom: str | None = None) -> None:
         # TODO: method for adding data, eg: writing at end of jsonl or adding to sqlite db
         pass
+
+
+"""
+TODO:
+- implement pipeline class that allows loading and format transformations with load
+    - useful when you want to load a zip file with internal formats, for instance
+"""
+
+
+class Pipeline:
+    pass
+
+
+"""
+TODO:
+- implement generator that can load in extremely large files piece by piece and handle each piece of component data by passing it to a handler agent
+"""
+
+
+class Generator:
+    pass
