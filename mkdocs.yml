@@ -6,7 +6,6 @@ plugins:
 
 theme:
   name: material
-  custom_dir: overrides
   logo: assets/pyeio-small.png
   favicon: assets/pyeio-small.png
   icon:
