@@ -4,7 +4,12 @@ hide:
 ---
 
 # Formats
-## Implemented
+
+## JSON
+
+JSON files load to either a dict or list datatype, and are always fully in memory.
+
+- [ ] Basic IO
 - json
 
 ## Priority
@@ -31,6 +36,7 @@ hide:
 - npy
 - npz
 - 7z
+- zst
 - graphml
 - js
 - py
@@ -40,6 +46,6 @@ hide:
 - zst
 - sql
 - sqlitedict
-- py
-- js
 - rs
+- pysos
+- parquet
