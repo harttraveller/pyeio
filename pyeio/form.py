@@ -7,7 +7,6 @@ from pathlib import Path
 
 
 class JSON:
-    # TODO: add automatic checks for jsonl files
     @staticmethod
     def load(path: str | Path) -> dict | list:
         with open(path, "r") as file:
@@ -36,3 +35,12 @@ class JSONL:
             for line in data:
                 file.write(json.dumps(line) + "\n")
         file.close()
+
+class TOML:
+    @staticmethod
+    def load(path: str | Path) -> dict:
+        pass
+
+    @staticmethod
+    def save(data: dict, path: str | Path) -> None:
+        pass
