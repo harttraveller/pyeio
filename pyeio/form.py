@@ -51,3 +51,8 @@ class TOML:
         with open(path, "w") as file:
             file.write(toml.dumps(data))
         file.close()
+
+
+class CSV:
+    # TODO
+    pass
