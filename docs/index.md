@@ -5,7 +5,7 @@ hide:
 
 # Introduction
 
-Python Easy Input Output is a Python library meant to simplify file IO processes. It provides the ability to load and save different file formats with just the `load` and `save` methods. The required python dependencies can be found in the [setup.py]() file, and the developer dependencies are listed in the [requirements.txt]() file in the repository.
+Python Easy Input Output is a Python library meant to simplify file IO processes. It provides the ability to load and save different file formats with just the `load` and `save` methods. The required python dependencies can be found in the [setup.py](https://github.com/harttraveller/pyeio/blob/main/setup.py) file, and the developer dependencies are listed in the [requirements.txt](https://github.com/harttraveller/pyeio/blob/main/requirements.txt) file in the repository.
 
 <br>
 
