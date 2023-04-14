@@ -82,4 +82,4 @@ pytest pyeio
 
 ## Support
 
-If you run into any bugs, please submit an [issue]() on GitHub.
+If you run into any bugs, please submit an [issue](https://github.com/harttraveller/pyeio/issues) on GitHub.
