@@ -3,10 +3,9 @@ hide:
 - navigation
 ---
 
+# Examples
 
-## Tutorial
-
-### Save Files
+## Save Files
 
 ```python title="Input Dictionary"
 data = {
@@ -28,7 +27,7 @@ easy.save(data, "example.json")
 }
 ```
 
-### Save Custom Format
+## Save Custom Format
 
 ```python title="Input Dictionary"
 data = {
@@ -48,7 +47,7 @@ oranges, 4
 bananas, 5
 ```
 
-### Load Files
+## Load Files
 
 ```json title="Input JSON File"
 [1, 2, 3, 4, 5, 6]
@@ -63,7 +62,7 @@ data = easy.load("example.json")
 ```
 
 
-### Load Custom Types
+## Load Custom Types
 
 ```python title="Additional Import"
 from pyeio import kind
