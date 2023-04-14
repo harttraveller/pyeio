@@ -56,3 +56,8 @@ class TOML:
 class CSV:
     # TODO
     pass
+
+
+class XLSX:
+    # TODO
+    pass
