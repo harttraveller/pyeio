@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
     name="pyeio",
     description="Python library for easy input/output file operations.",
-    version="0.0.4",
+    version="0.0.5",
     license="MIT",
     author="Hart Traveller",
     url="https://github.com/harttraveller/pyeio",
