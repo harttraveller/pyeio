@@ -37,6 +37,11 @@ class JSONL:
                 file.write(orjson.dumps(line) + "\n")
         file.close()
 
+    @staticmethod
+    def add(data, path) -> None:
+        # TODO
+        pass
+
 
 class TOML:
     @staticmethod
