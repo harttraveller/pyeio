@@ -7,7 +7,7 @@ TODO (maybe)
 """
 
 from pathlib import Path
-from typing import Any
+from typing import Any, Union, Optional
 from pyeio.utils import file_format
 from pyeio.form import JSON, JSONL
 
@@ -35,7 +35,7 @@ class EIO:
         if fmt not in self.formats:
             raise ValueError("Unsupported file format.")
 
-    def load(self, path: str | Path, custom: str | None = None) -> Any:
+    def load(self, path: Union[str, Path], custom: Optional[str] = None) -> Any:
         """
         Load a file into memory.
 
@@ -55,7 +55,12 @@ class EIO:
             data = self.__methods[custom]["load"](path)
         return data
 
-    def save(self, data: Any, path: str | Path, custom: str | None = None) -> None:
+    def save(
+        self,
+        data: Any,
+        path: Union[str, Path],
+        custom: Optional[str] = None,
+    ) -> None:
         """
         Save a file in memory to disk.
 
@@ -72,7 +77,12 @@ class EIO:
             self._check_supported(custom)
             self.__methods[custom]["save"](data, path)
 
-    def add(self, data: Any, path: str | Path, custom: str | None = None) -> None:
+    def add(
+        self,
+        data: Any,
+        path: Union[str, Path],
+        custom: Optional[str] = None,
+    ) -> None:
         # TODO: method for adding data, eg: writing at end of jsonl or adding to sqlite db
         pass
 
