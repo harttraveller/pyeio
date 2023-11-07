@@ -65,6 +65,12 @@ def resolve_via_raw(raw: Union[str, bytes]) -> ResolutionResult:
 
 
 class Easy:
+    def __resolve_format_via_raw():
+        pass
+
+    def __resolve_format_via_loc():
+        pass
+
     def identify(
         self,
         raw: Optional[Union[str, bytes]] = None,
