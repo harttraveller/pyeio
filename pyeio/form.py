@@ -1,6 +1,4 @@
-"""
-Data format IO builder classes
-"""
+from __future__ import annotations
 
 import toml
 import orjson
@@ -10,22 +8,26 @@ from typing import Union
 
 class JSON:
     @staticmethod
-    def load(path: Union[str, Path]) -> dict | list:
+    def open(path: Union[str, Path]) -> Union[dict, list]:
         with open(path, "r") as file:
             data = orjson.load(file)
         file.close()
         return data
 
     @staticmethod
-    def save(data: dict | list, path: Union[str, Path]) -> None:
+    def save(data: Union[dict, list], path: Union[str, Path]) -> None:
         with open(path, "w") as file:
             file.write(orjson.dumps(data, indent=4))
         file.close()
 
+    @staticmethod
+    def load(path: Union[str, Path]) -> JSON:
+        pass
+
 
 class JSONL:
     @staticmethod
-    def load(path: Union[str, Path]) -> list:
+    def open(path: Union[str, Path]) -> list:
         with open(path, "r") as file:
             data = [orjson.loads(line) for line in file.readlines()]
         file.close()
@@ -46,7 +48,7 @@ class JSONL:
 
 class TOML:
     @staticmethod
-    def load(path: Union[str, Path]) -> dict:
+    def open(path: Union[str, Path]) -> dict:
         with open(path, "r") as file:
             data = toml.loads(file.read())
         file.close()
@@ -67,3 +69,8 @@ class CSV:
 class XLSX:
     # TODO
     pass
+
+
+OPEN = {}
+
+LOAD = {}
