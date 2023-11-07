@@ -7,6 +7,7 @@ repository = "https://github.com/harttraveller/pyeio"
 documentation = "https://harttraveller.com/pyeio"
 authors = ["Hart Traveller <ruling_fiction.0b@icloud.com>"]
 maintainers = ["Hart Traveller <ruling_fiction.0b@icloud.com>"]
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = ">3.9.7, <4.0"
@@ -15,7 +16,6 @@ loguru = "^0.7.2"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.4.3"
-
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
