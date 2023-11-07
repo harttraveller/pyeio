@@ -12,17 +12,25 @@ from pyeio.util import file_format
 from pyeio.form import JSON, JSONL
 
 
+class ID:
+    pass
+
+
 class IO:
     def open():
+        # should return inferred data type
         pass
 
     def save():
+        # should save inferred data type
         pass
 
     def load():
+        # should return format representation object
         pass
 
     def make():
+        # should return format representation object, creating disk object (ie: for databases)
         pass
 
 
