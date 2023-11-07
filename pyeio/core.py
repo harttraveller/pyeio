@@ -8,8 +8,60 @@ TODO (maybe)
 
 from pathlib import Path
 from typing import Any, Union, Optional
+from pydantic import BaseModel
 from pyeio.util import file_format
 from pyeio.schema import JSON, JSONL
+
+
+class DataFormat(BaseModel):
+    extension: str
+
+    # @field_validator("extension")
+    # def __validate_name(cls, extension: str) -> str:
+    #     if (extension not in extset) or (extension != "unknown"):
+    #         # ? redundant
+    #         raise ValueError("unknown file format")
+    #     return extension
+
+    def __str__(self) -> str:
+        return self.extension
+
+    def __repr__(self) -> str:
+        return self.extension
+
+
+class ResolutionResult(BaseModel):
+    success: bool
+    dformat: DataFormat
+
+
+# class Resolver:
+#     def __init__(self):
+#         pass
+
+
+def resolve_via_loc(loc: Union[str, Path], val: bool) -> ResolutionResult:
+    loc = str(loc)
+    if "." in loc:
+        extension = loc.split(".")[-1].lower()
+        # if extension in extset:
+        #     return ResolutionResult(success=True, dformat=DataFormat(extension=extension))
+        # else:
+        #     return ResolutionResult(
+        #         success=False, dformat=DataFormat(extension="unknown")
+        #     )
+    else:
+        # todo: if val, load
+        # todo: if url/uri, doublecheck by retrieving from web
+        # todo: if path, doublecheck by loading in
+        raise NotImplementedError(
+            "Could not resolve from file extension, would need to read in file "
+            "to resolve from binary, but this feature is currently unimplemented."
+        )
+
+
+def resolve_via_raw(raw: Union[str, bytes]) -> ResolutionResult:
+    pass
 
 
 def resolve(
@@ -46,10 +98,11 @@ def resolve(
 
 class Easy:
     def identify(
+        self,
         raw: Optional[Union[str, bytes]] = None,
         loc: Optional[Union[str, Path]] = None,
         val: bool = False,
-    ):
+    ) -> DataFormat:
         pass
 
     def open(loc: Union[str, Path]) -> Any:
@@ -72,57 +125,6 @@ class Easy:
 # from pathlib import Path
 # from typing import Optional, Union
 # from pydantic import BaseModel, field_validator
-
-
-# class DataFormat(BaseModel):
-#     extension: str
-
-#     # @field_validator("extension")
-#     # def __validate_name(cls, extension: str) -> str:
-#     #     if (extension not in extset) or (extension != "unknown"):
-#     #         # ? redundant
-#     #         raise ValueError("unknown file format")
-#     #     return extension
-
-#     def __str__(self) -> str:
-#         return self.extension
-
-#     def __repr__(self) -> str:
-#         return self.extension
-
-
-# class ResolutionResult(BaseModel):
-#     success: bool
-#     dformat: DataFormat
-
-
-# class Resolver:
-#     def __init__(self):
-#         pass
-
-
-# def resolve_via_loc(loc: Union[str, Path], val: bool) -> ResolutionResult:
-#     loc = str(loc)
-#     if "." in loc:
-#         extension = loc.split(".")[-1].lower()
-#         if extension in extset:
-#             return ResolutionResult(success=True, dformat=DataFormat(extension=extension))
-#         else:
-#             return ResolutionResult(
-#                 success=False, dformat=DataFormat(extension="unknown")
-#             )
-#     else:
-#         # todo: if val, load
-#         # todo: if url/uri, doublecheck by retrieving from web
-#         # todo: if path, doublecheck by loading in
-#         raise NotImplementedError(
-#             "Could not resolve from file extension, would need to read in file "
-#             "to resolve from binary, but this feature is currently unimplemented."
-#         )
-
-
-# def resolve_via_raw(raw: Union[str, bytes]) -> ResolutionResult:
-#     pass
 
 
 # class EIO:
