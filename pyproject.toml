@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "pyeio"
+version = "0.1.0"
+description = "Python package for easy data input output handling."
+readme = "README.md"
+repository = "https://github.com/harttraveller/pyeio"
+documentation = "https://harttraveller.com/pyeio"
+authors = ["Hart Traveller <ruling_fiction.0b@icloud.com>"]
+maintainers = ["Hart Traveller <ruling_fiction.0b@icloud.com>"]
+
+[tool.poetry.dependencies]
+python = ">3.9.7, <4.0"
+pydantic = "^2.4.2"
+loguru = "^0.7.2"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.3"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
