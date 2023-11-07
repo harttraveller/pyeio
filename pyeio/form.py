@@ -41,6 +41,10 @@ class JSONL:
         file.close()
 
     @staticmethod
+    def load(path: Union[str, Path]) -> JSONL:
+        pass
+
+    @staticmethod
     def add(data, path) -> None:
         # TODO
         pass
