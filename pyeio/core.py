@@ -12,6 +12,20 @@ from pyeio.util import file_format
 from pyeio.form import JSON, JSONL
 
 
+class IO:
+    def open():
+        pass
+
+    def save():
+        pass
+
+    def load():
+        pass
+
+    def make():
+        pass
+
+
 # class EIO:
 #     def __init__(self):
 #         self.__init_interfaces()
