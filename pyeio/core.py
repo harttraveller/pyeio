@@ -12,10 +12,6 @@ from pyeio.util import file_format
 from pyeio.schema import JSON, JSONL
 
 
-class ID:
-    pass
-
-
 class IO:
     def open():
         # should return inferred data type
