@@ -12,12 +12,51 @@ from pyeio.util import file_format
 from pyeio.schema import JSON, JSONL
 
 
-class IO:
-    def open():
+def resolve(
+    raw: Optional[Union[str, bytes]] = None,
+    loc: Optional[Union[str, Path]] = None,
+    val: bool = False,
+) -> DataFormat:
+    """
+    raw: text
+    loc: path (str/Path) or uri/url to resource
+    """
+    if val:
+        raise NotImplementedError(
+            "Reading in the resource to check it is not yet supported, "
+            "you should read it in and pass the text or binary data to this function."
+        )
+    # check if appropriate params have been passed in
+    if all([raw is None, loc is None]):
+        raise ValueError("You must pass an argument to at least one of the parameters.")
+    # assess if the path or uri
+    # todo: if val, run all, compare results
+    if loc is not None:
+        loc_resolution_attempt = resolve_via_loc(loc=loc, val=val)
+        if loc_resolution_attempt.success:
+            # todo: if val, doublecheck by reading in
+            return loc_resolution_attempt.dformat
+    if raw is not None:
+        raw_resolution_attempt = resolve_via_raw(raw=raw)
+        if raw_resolution_attempt.success:
+            return raw_resolution_attempt.dformat
+    # todo: check to make sure there are no dataformats called 'unknown'
+    return "unknown"
+
+
+class Easy:
+    def identify(
+        raw: Optional[Union[str, bytes]] = None,
+        loc: Optional[Union[str, Path]] = None,
+        val: bool = False,
+    ):
+        pass
+
+    def open(loc: Union[str, Path]) -> Any:
         # should return inferred data type
         pass
 
-    def save():
+    def save(obj: Any, loc: Union[str, Path], overwrite: bool = False) -> None:
         # should save inferred data type
         pass
 
@@ -84,38 +123,6 @@ class IO:
 
 # def resolve_via_raw(raw: Union[str, bytes]) -> ResolutionResult:
 #     pass
-
-
-# def resolve(
-#     raw: Optional[Union[str, bytes]] = None,
-#     loc: Optional[Union[str, Path]] = None,
-#     val: bool = False,
-# ) -> DataFormat:
-#     """
-#     raw: text
-#     loc: path (str/Path) or uri/url to resource
-#     """
-#     if val:
-#         raise NotImplementedError(
-#             "Reading in the resource to check it is not yet supported, "
-#             "you should read it in and pass the text or binary data to this function."
-#         )
-#     # check if appropriate params have been passed in
-#     if all([raw is None, loc is None]):
-#         raise ValueError("You must pass an argument to at least one of the parameters.")
-#     # assess if the path or uri
-#     # todo: if val, run all, compare results
-#     if loc is not None:
-#         loc_resolution_attempt = resolve_via_loc(loc=loc, val=val)
-#         if loc_resolution_attempt.success:
-#             # todo: if val, doublecheck by reading in
-#             return loc_resolution_attempt.dformat
-#     if raw is not None:
-#         raw_resolution_attempt = resolve_via_raw(raw=raw)
-#         if raw_resolution_attempt.success:
-#             return raw_resolution_attempt.dformat
-#     # todo: check to make sure there are no dataformats called 'unknown'
-#     return "unknown"
 
 
 # class EIO:
