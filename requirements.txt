@@ -1,6 +1,0 @@
-pytest
-mkdocs-material
-pathlib
-ipykernel
-orjson
-toml
