@@ -9,7 +9,7 @@ TODO (maybe)
 from pathlib import Path
 from typing import Any, Union, Optional
 from pydantic import BaseModel
-from pyeio.util import file_format
+from pyeio.utility import file_format
 from pyeio.schema import FORMATS
 
 
@@ -52,7 +52,7 @@ class Easy:
     def supported(self) -> list[str]:
         return list(FORMATS.keys())
 
-    def known(self, loc: Union[str, Path]) -> DataFormat:
+    def known(self, loc: Union[str, Path]) -> bool:
         loc = str(loc)
         if "." in loc:
             extension = loc.split(".")[-1].lower()
@@ -106,6 +106,8 @@ class Easy:
         # should return format representation object, creating disk object (ie: for databases)
         pass
 
+
+easy = Easy()
 
 # from pathlib import Path
 # from typing import Optional, Union
