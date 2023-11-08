@@ -7,7 +7,7 @@ def parse_file_name(path: Union[str, Path]) -> str:
     return str(path).split("/")[-1]
 
 
-def file_format(path: Union[str, Path]) -> str:
+def parse_extension(path: Union[str, Path]) -> str:
     "get file format from path"
     return parse_file_name(path).split(".")[-1]
 
