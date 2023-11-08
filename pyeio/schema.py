@@ -75,6 +75,6 @@ class XLSX:
     pass
 
 
-OPEN = {}
-
-LOAD = {}
+FORMAT = {
+    "json": JSON,
+}
