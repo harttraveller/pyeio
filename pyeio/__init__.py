@@ -1,3 +1,4 @@
-from pyeio.core import EIO
+from pyeio.core import Easy
+from pyeio import utility as iou
 
-easy = EIO()
+# easy = EIO()
