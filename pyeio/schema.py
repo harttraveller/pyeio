@@ -9,6 +9,7 @@ from typing import Union
 class JSON:
     @staticmethod
     def open(path: Union[str, Path]) -> Union[dict, list]:
+        # detect if url
         with open(path, "r") as file:
             data = orjson.load(file)
         file.close()
@@ -28,6 +29,7 @@ class JSON:
 class JSONL:
     @staticmethod
     def open(path: Union[str, Path]) -> list:
+        # detect if url
         with open(path, "r") as file:
             data = [orjson.loads(line) for line in file.readlines()]
         file.close()
@@ -39,10 +41,6 @@ class JSONL:
             for line in data:
                 file.write(orjson.dumps(line) + "\n")
         file.close()
-
-    @staticmethod
-    def load(path: Union[str, Path]) -> JSONL:
-        pass
 
     @staticmethod
     def add(data, path) -> None:
@@ -75,6 +73,6 @@ class XLSX:
     pass
 
 
-FORMAT = {
+FORMATS = {
     "json": JSON,
 }

@@ -48,24 +48,16 @@ class ResolutionResult(BaseModel):
 
 
 class Easy:
-    def __resolve_format_via_loc(self, loc: Union[str, Path]) -> DataFormat:
+    @property
+    def supported(self) -> list[str]:
+        return list(FORMATS.keys())
+
+    def known(self, loc: Union[str, Path]) -> DataFormat:
         loc = str(loc)
         if "." in loc:
             extension = loc.split(".")[-1].lower()
-            # if extension in extset:
-            #     return ResolutionResult(success=True, dformat=DataFormat(extension=extension))
-            # else:
-            #     return ResolutionResult(
-            #         success=False, dformat=DataFormat(extension="unknown")
-            #     )
-        else:
-            # todo: if val, load
-            # todo: if url/uri, doublecheck by retrieving from web
-            # todo: if path, doublecheck by loading in
-            raise NotImplementedError(
-                "Could not resolve from file extension, would need to read in file "
-                "to resolve from binary, but this feature is currently unimplemented."
-            )
+            if extension in FORMATS.keys():
+                return extension
 
     def __resolve_format_via_raw(self, raw: Union[str, bytes]) -> DataFormat:
         pass
@@ -87,7 +79,7 @@ class Easy:
         # assess if the path or uri
         # todo: if val, run all, compare results
         if loc is not None:
-            loc_resolution_attempt = self.__resolve_format_via_loc(loc=loc)
+            loc_resolution_attempt = self.known(loc=loc)
             if loc_resolution_attempt.success:
                 # todo: if val, doublecheck by reading in
                 return loc_resolution_attempt.dformat
