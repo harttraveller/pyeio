@@ -9,8 +9,8 @@ TODO (maybe)
 from pathlib import Path
 from typing import Any, Union, Optional
 from pydantic import BaseModel
-from pyeio import iou
 from pyeio.schema import FORMATS
+from pyeio import utility as iou
 
 
 class DataFormat(BaseModel):
