@@ -1,18 +1,18 @@
 from pathlib import Path
-from typing import Any
+from typing import Any, Union
 
 
-def file_name(path: str | Path) -> str:
+def parse_file_name(path: Union[str, Path]) -> str:
     "get file name from path"
     return str(path).split("/")[-1]
 
 
-def file_format(path: str | Path) -> str:
+def file_format(path: Union[str, Path]) -> str:
     "get file format from path"
-    return file_name(path).split(".")[-1]
+    return parse_file_name(path).split(".")[-1]
 
 
-def file_size(path: str | Path) -> int:
+def file_size(path: Union[str, Path]) -> int:
     "get file size in bytes from path"
     raise NotImplementedError()
 
