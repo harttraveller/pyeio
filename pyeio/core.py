@@ -9,7 +9,7 @@ TODO (maybe)
 from pathlib import Path
 from typing import Any, Union, Optional
 from pydantic import BaseModel
-from pyeio.utility import file_format
+from pyeio import iou
 from pyeio.schema import FORMATS
 
 
