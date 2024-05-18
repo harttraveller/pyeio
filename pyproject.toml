@@ -28,6 +28,9 @@ optional = true
 
 [tool.poetry.group.docs.dependencies]
 
+[tool.poetry.scripts]
+eio = "eio.console:entry"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
