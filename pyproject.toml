@@ -10,7 +10,8 @@ maintainers = ["Hart Traveller <ruling_fiction.0b@icloud.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = ">3.9.7, <3.13"
+python = ">=3.10, <3.13"
+pydantic = "^2.7.1"
 
 [tool.poetry.group.dev]
 optional = true
