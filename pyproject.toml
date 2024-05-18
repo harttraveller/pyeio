@@ -29,7 +29,7 @@ optional = true
 [tool.poetry.group.docs.dependencies]
 
 [tool.poetry.scripts]
-eio = "eio.console:entry"
+eio = "eio.cli:entry"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
