@@ -29,8 +29,8 @@ optional = true
 
 [tool.poetry.group.docs.dependencies]
 
-[tool.poetry.scripts]
-eio = "eio.cli:entry"
+# [tool.poetry.scripts]
+# eio = "eio.cli:entry"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
