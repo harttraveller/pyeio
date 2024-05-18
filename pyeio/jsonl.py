@@ -10,17 +10,18 @@ def load(path: str | Path) -> list | dict:
 def save(): ...
 
 
-def stream(
-    path: str | Path,
-    validator,
-    handler,
-): ...
+# todo
+# def stream(
+#     path: str | Path,
+#     validator,
+#     handler,
+# ): ...
 
 
-# same as stream except operation is done on each element
-def stream_ingest(
-    path,
-    validator,
-    handler,
-    errors,  # raise or log
-): ...
+# # same as stream except operation is done on each element
+# def stream_ingest(
+#     path,
+#     validator,
+#     handler,
+#     errors,  # raise or log
+# ): ...
