@@ -28,24 +28,3 @@ Short for `Py`thon `E`asy `I`nput `O`utput, `pyeio` is a python library meant to
 pip install pyeio
 ```
 
-For example, you can use it to avoid rewriting the code below hundreds of times.
-
-```python
-import json
-with open("data/example.json", "r") as file:
-    data = json.load(file)
-file.close()
-```
-
-By simplifying it to the following line.
-
-```python
-from pyeio import easy
-data = easy.load("data.json")
-```
-
-For more examples visit the [documentation](https://harttraveller.com/pyeio) site.
-
-
-
-
