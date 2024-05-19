@@ -3,11 +3,13 @@ from pathlib import Path
 from .core import io
 
 
-def save(): ...
-
-
-def load(path: str | Path) -> str | int | float | list | dict:
+def load(
+    path: str | Path,
+) -> str | bool | int | float | list | dict:
     return json.loads(io.load_text(path))
+
+
+def save(): ...
 
 
 # get from web, load into memory
