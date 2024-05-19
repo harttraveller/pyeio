@@ -29,6 +29,6 @@ class UnknownExtensionError(Exception):
         self.extension = extension
         self.message = (
             f"Unknown extension '{extension}'.\n"
-            f"Available extensions are: {ext.standard_exts}"
+            f"Available extensions are: {ext.all_exts}"
         )
         super().__init__(self.message)
