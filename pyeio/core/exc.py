@@ -1,4 +1,5 @@
 from typing import Optional
+from . import ext
 
 
 class InvalidExtensionError(Exception):
@@ -15,4 +16,19 @@ class InvalidExtensionError(Exception):
         self.message = f"Expected extension '{expected}', but got '{provided}'."
         if message:
             self.message += f"\n{message}"
+        super().__init__(self.message)
+
+
+class UnknownExtensionError(Exception):
+    """Raised when the provided extension is not known/supported yet."""
+
+    def __init__(
+        self,
+        extension: str,
+    ) -> None:
+        self.extension = extension
+        self.message = (
+            f"Unknown extension '{extension}'.\n"
+            f"Available extensions are: {ext.standard_exts}"
+        )
         super().__init__(self.message)
