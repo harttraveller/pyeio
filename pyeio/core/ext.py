@@ -1,4 +1,4 @@
-from typing import Literal, cast
+from typing import Literal, Optional, cast
 from . import exc
 
 # literal used for type hints and pydantic validation
@@ -39,10 +39,20 @@ ext_translation: dict[VariantExtension, StandardExtension] = {
 }
 
 
-def standardize(ext: str) -> StandardExtension:
-    if ext in standard_exts:
-        return ext
-    elif ext in variant_exts:
-        return ext_translation[ext]
+def standardize(extension: str) -> StandardExtension:
+    if extension in standard_exts:
+        return extension
+    elif extension in variant_exts:
+        return ext_translation[extension]
     else:
-        raise exc.UnknownExtensionError(extension=ext)
+        raise exc.UnknownExtensionError(extension=extension)
+
+
+def valid(
+    extension: str,
+    allowed: set[str],
+    message: Optional[str] = None,
+) -> None:
+    """Validates expected extension."""
+    if extension != allowed:
+        raise Exception  # todo add custom
