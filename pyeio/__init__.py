@@ -1,3 +1,5 @@
+from pathlib import Path
+from typing import Any
 from pyeio import json, jsonl, toml
 
 # extensions = {
@@ -16,7 +18,10 @@ from pyeio import json, jsonl, toml
 # auto resolution functions, likely unstable
 
 
-# def load(): ...
+# todo: return result/basemodel here with info about what done
+def load(path: str | Path) -> Any:
+    """"""
+    ...
 
 
-# def save(): ...
+def save(data: Any, path: str | Path): ...
