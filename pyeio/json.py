@@ -6,15 +6,15 @@ from .core import io
 def save(): ...
 
 
-def load(path: str | Path) -> str | int | list | dict:
+def load(path: str | Path) -> str | int | float | list | dict:
     return json.loads(io.load_text(path))
 
 
-# fetch from web
-def fetch(): ...
+# get from web, load into memory
+def get(uri: str, shards: int = 1): ...
 
 
-def download(): ...
+def download(uri: str, shards: int = 1): ...
 
 
 # todo
@@ -31,3 +31,7 @@ def download(): ...
 
 
 # def apply_recursive(): ...
+
+# todo: get recursive from webpage or online directory
+# webpage: eg - scrape all json links and download to local dir
+# dir: eg - s3 bucket, dl all
