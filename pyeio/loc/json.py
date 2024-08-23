@@ -1,10 +1,15 @@
 import json
 from pathlib import Path
-from pyeio.core import io
+from pyeio.types import PathLike
+from pyeio.io import io
+from typing import TypeVar
+
+T = TypeVar("T", bound="JSON")
+JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
 def load(
-    path: str | Path,
+    path: PathLike,
 ) -> str | bool | int | float | list | dict:
     return json.loads(io.load_text(path))
 
