@@ -12,9 +12,9 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = ">=3.10, <3.13"
 pydantic = "^2.7.1"
-
 toml = "^0.10.2"
 loguru = "^0.7.2"
+
 [tool.poetry.group.dev]
 optional = true
 
@@ -30,8 +30,6 @@ optional = true
 
 [tool.poetry.group.docs.dependencies]
 
-# [tool.poetry.scripts]
-# eio = "eio.cli:entry"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
