@@ -1,9 +1,8 @@
 # pyeio
 
 <br>
-
 <div align="left">
-<a href="https://harttraveller.com/pyeio" target="_blank">
+<a href="https://harttraveller.github.io/pyeio" target="_blank">
 <img src="https://raw.githubusercontent.com/harttraveller/pyeio/main/docs/assets/pyeio-large.png" height=20>
 </a>
 <a href="https://pypi.org/project/pyeio/" target="_blank">
