@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from .core import io
+from pyeio.core import io
 
 
 def load(
