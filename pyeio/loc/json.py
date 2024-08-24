@@ -17,11 +17,6 @@ def load(
 def save(): ...
 
 
-# get from web, load into memory
-def get(uri: str, shards: int = 1): ...
-
-
-def put(uri: str, shards: int = 1): ...
 
 
 # todo
