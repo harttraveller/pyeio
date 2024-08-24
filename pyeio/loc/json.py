@@ -10,7 +10,7 @@ JSON = bool | int | float | str | list[T] | dict[str, T]
 
 def load(
     path: PathLike,
-) -> str | bool | int | float | list | dict:
+) -> JSON:
     return json.loads(io.load_text(path))
 
 
