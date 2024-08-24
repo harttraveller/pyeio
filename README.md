@@ -37,6 +37,7 @@ Support for a given file format means that a submodule of `pyeio.file` exists, s
     - `parse`
     - `apply`
     - `append`
+    - `prepend`
 - Tree Structured Data Support:
     - `traverse`
 
