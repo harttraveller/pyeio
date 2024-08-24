@@ -17,13 +17,56 @@
 
 Short for `Py`thon `E`asy `I`nput `O`utput, `pyeio` is a python library meant to simplify file IO processes.
 
+## Installation
+
 ```bash
 pip install pyeio
 ```
 
-## Support Definition
+## Details
 
-## File Formats
+### Format Support
+
+Support for a given file format means that a submodule of `pyeio.file` exists, such that the following features are supported.
+
+- Global Support:
+    - `load`
+    - `save`
+    - `read` (read some data, kind read depends on file format)
+- List Structured Data Support:
+    - `parse`
+    - `apply`
+- Tree Structured Data Support:
+    - `traverse`
+
+<!-- Experimental Features
+- format identification
+- ? lm based data cleaning
+-->
+
+#### File Loading
+
+```python
+from pyeio import file
+
+data = file.json.load("/path/to/file")
+```
+
+
+#### Object Streaming
+
+For file formats that consist of arrays of objects.
+
+```python
+from pyeio import file
+
+for line in file.jsonl.stream("/path/to/file"):
+    some_operation_on_line(line)
+```
+
+
+
+### File Formats
 
 
 

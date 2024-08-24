@@ -1,13 +1,22 @@
-import json
-from pathlib import Path
-from .core import io
-
-
-def load(path: str | Path) -> list | dict:
-    return json.loads(io.load_text(path))
+def load(): ...
 
 
 def save(): ...
+
+
+def stream(): ...
+
+
+# import json
+# from pathlib import Path
+# from .core import io
+
+
+# def load(path: str | Path) -> list | dict:
+#     return json.loads(io.load_text(path))
+
+
+# def save(): ...
 
 
 # todo
