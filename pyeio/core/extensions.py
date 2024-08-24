@@ -1,5 +1,5 @@
 from typing import Literal, Optional, cast
-from . import exc
+from .. import exc
 
 # literal used for type hints and pydantic validation
 StandardExtension = Literal[

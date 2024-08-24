@@ -1,4 +1,4 @@
-from .types import PathLike
+from .core.types import PathLike
 
 
 # text

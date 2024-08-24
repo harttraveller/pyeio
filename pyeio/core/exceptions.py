@@ -1,5 +1,5 @@
 from typing import Optional
-from . import ext
+from .. import ext
 
 
 class UnexpectedError(Exception):

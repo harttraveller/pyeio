@@ -1,7 +1,7 @@
 import orjson
 from pathlib import Path
-from pyeio.types import PathLike
-from pyeio.core import load_text
+from pyeio.core.types import PathLike
+from pyeio.core.core import load_text
 from typing import TypeVar, Callable
 
 T = TypeVar("T", bound="JSON")
