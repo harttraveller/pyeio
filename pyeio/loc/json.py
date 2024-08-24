@@ -1,4 +1,4 @@
-import json
+import orjson
 from pathlib import Path
 from pyeio.types import PathLike
 from pyeio.io import io
@@ -11,7 +11,7 @@ JSON = bool | int | float | str | list[T] | dict[str, T]
 def load(
     path: PathLike,
 ) -> JSON:
-    return json.loads(io.load_text(path))
+    return orjson.loads(io.load_text(path))
 
 
 def save(): ...
