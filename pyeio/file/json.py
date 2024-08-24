@@ -1,26 +1,31 @@
 import orjson
 from pathlib import Path
 from pyeio.core.types import PathLike
-from pyeio.core.core import load_text
+from pyeio.core import io
 from typing import TypeVar, Callable
 
 T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
-def load(
-    path: PathLike,
-) -> JSON:
-    return orjson.loads(load_text(path))
+def load(path: PathLike) -> JSON:
+    return orjson.loads(io.load_text(path))
+
+
+def read(url: str) -> JSON: ...
 
 
 def save(): ...
 
+
 def stream(): ...
+
 
 def append(): ...
 
+
 def apply(): ...
+
 
 def parse(): ...
 
