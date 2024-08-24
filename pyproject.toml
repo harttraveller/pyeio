@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyeio"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python package for easy data input output handling."
 readme = "README.md"
 repository = "https://github.com/harttraveller/pyeio"
@@ -12,6 +12,7 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = ">=3.10, <3.13"
 toml = "^0.10.2"
+orjson = "^3.10.7"
 
 [tool.poetry.group.dev]
 optional = true
