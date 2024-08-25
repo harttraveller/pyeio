@@ -1,6 +1,6 @@
 import orjson
 from pathlib import Path
-from pyeio.core.types import PathLike
+from pyeio.data.types import PathLike
 from pyeio.core import io
 from typing import TypeVar, Callable
 

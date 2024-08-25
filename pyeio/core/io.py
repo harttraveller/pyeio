@@ -1,4 +1,4 @@
-from pyeio.core.types import PathLike
+from pyeio.data.types import PathLike
 
 
 # text
