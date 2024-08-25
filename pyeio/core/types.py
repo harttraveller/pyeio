@@ -12,6 +12,7 @@ FileExtension = Literal[
     "md",
     "jpeg",
     "zst",
+    "nc",
 ]
 
 file_extensions: tuple[str, ...] = get_args(FileExtension)
@@ -27,6 +28,11 @@ VariantFileExtension = Literal[
 
 
 variant_file_extensions: tuple[str, ...] = get_args(VariantFileExtension)
+
+# MimeType = Literal[
+#     "application/netcdf",
+#     "application/x-netcdf",
+# ]
 
 
 variant_to_standard: dict[VariantFileExtension, FileExtension] = {
