@@ -6,6 +6,26 @@ PathLike = str | Path
 FileExtension = Literal[
     "json",
     "jsonl",
+    "zst",
 ]
 
-file_extensions = get_args(FileExtension)
+file_extensions: tuple[str, ...] = get_args(FileExtension)
+
+StandardFileExtension = Literal[
+    "json",
+    "jsonl",
+    "toml",
+    "xml",
+    "md",
+    "jpeg",
+]
+
+standard_file_extensions: tuple[str, ...] = get_args(StandardFileExtension)
+
+VariantFileExtension = Literal[
+    "ndjson",
+    "jsonlines",
+]
+
+
+variant_file_extensions: tuple[str, ...] = get_args(VariantFileExtension)
