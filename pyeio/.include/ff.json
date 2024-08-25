@@ -1,3 +1,30 @@
 {
-    "$schema": "./ff.schema.json"
+    "formats": [
+        {
+            "name": "Plain Text",
+            "qid": "Q86920",
+            "wikipedia": "https://en.wikipedia.org/wiki/Text_file",
+            "executable": false,
+            "parent": null,
+            "has": {},
+            "is.type": "text | binary",
+            "is.executable": false,
+            "has.formal_syntax": false,
+            "property": {
+                "is_executable": false,
+                "is_text": false
+            },
+            "mime": {
+                "standard": "text/plain",
+                "variants": []
+            },
+            "extension": {
+                "standard": "txt",
+                "variants": [
+                    "text",
+                    "log"
+                ]
+            }
+        }
+    ]
 }
