@@ -13,11 +13,10 @@ def load(loc: ResourceLocation) -> JSON:
     return orjson.loads(io.load_text(loc))
 
 
-def read(loc: str) -> JSON: ...
-
-
 def save(): ...
 
+
+# def read(loc: str) -> JSON: ...
 
 # def append(): ...
 
