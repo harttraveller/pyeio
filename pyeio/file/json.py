@@ -1,6 +1,6 @@
 import orjson
 from pathlib import Path
-from pyeio.core.types import PathLike
+from pyeio.core.types import ResourceLocation
 from pyeio.core import io
 from typing import TypeVar, Callable
 
@@ -9,40 +9,40 @@ T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
-def open(path: PathLike) -> JSON:
-    return orjson.loads(io.load_text(path))
+def load(loc: ResourceLocation) -> JSON:
+    return orjson.loads(io.load_text(loc))
 
 
-def read(url: str) -> JSON: ...
+def read(loc: str) -> JSON: ...
 
 
 def save(): ...
 
 
-def append(): ...
+# def append(): ...
 
 
-def apply(): ...
-
-
-def parse(): ...
-
-
-# todo
-# fix issues with file, like encoding or parsing stuff
-# def fix(): ...
-
-
-# apply operation on file to change
-# not too useful here, but useful for recursive apply
 # def apply(): ...
 
 
-# def load_recursive(): ...
+# def parse(): ...
 
 
-# def apply_recursive(): ...
+# # todo
+# # fix issues with file, like encoding or parsing stuff
+# # def fix(): ...
 
-# todo: get recursive from webpage or online directory
-# webpage: eg - scrape all json links and download to local dir
-# dir: eg - s3 bucket, dl all
+
+# # apply operation on file to change
+# # not too useful here, but useful for recursive apply
+# # def apply(): ...
+
+
+# # def load_recursive(): ...
+
+
+# # def apply_recursive(): ...
+
+# # todo: get recursive from webpage or online directory
+# # webpage: eg - scrape all json links and download to local dir
+# # dir: eg - s3 bucket, dl all

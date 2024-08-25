@@ -1,8 +1,8 @@
-from pyeio.core.types import PathLike
+from pyeio.core.types import ResourceLocation
 
 
 # text
-def load_text(path: PathLike) -> str:
+def load_text(path: ResourceLocation) -> str:
     with open(path) as file:
         data = file.read()
     file.close()

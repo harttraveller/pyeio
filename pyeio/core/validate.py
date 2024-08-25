@@ -1,4 +1,4 @@
-from .types import PathLike, FileExtension
+from .types import ResourceLocation, FileExtension
 
 
-def extension(path: PathLike, target_extension: FileExtension) -> None: ...
+def extension(path: ResourceLocation, target_extension: FileExtension) -> None: ...
