@@ -20,8 +20,6 @@ numpy = { version = "^2.1.0", optional = true }
 pandas = { version = "^2.2.2", optional = true }
 
 [tool.poetry.extras]
-# "meta.configuration" = ["orjson", "toml", "pyyaml"]
-# "meta.datasets" =
 json = ["orjson"]
 jsonl = ["orjson"]
 toml = ["toml"]
@@ -34,6 +32,8 @@ nc = ["netcdf4", "numpy"]
 # xls
 # xlsb
 # xlsx
+# "meta.configuration" = ["orjson", "toml", "pyyaml"]
+# "meta.datasets" =
 
 [tool.poetry.group.dev]
 optional = true
