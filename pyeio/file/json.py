@@ -10,10 +10,23 @@ JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
 def load(loc: ResourceLocation) -> JSON:
-    return orjson.loads(io.load_text(loc))
+    if isinstance(loc, Path):
+        text: str = io.load_text(loc)
+        data: JSON = orjson.loads(text)
+        return data
+    elif isinstance(loc, str):
+        # do check
+        ...
+    else:
+        raise TypeError(
+            "Resource location must be pathlib.Path or str (file path or URL)."
+        )
 
 
 def save(): ...
+
+
+def parse(): ...
 
 
 # def read(loc: str) -> JSON: ...
