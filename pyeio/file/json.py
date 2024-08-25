@@ -9,7 +9,7 @@ T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
-def load(path: PathLike) -> JSON:
+def open(path: PathLike) -> JSON:
     return orjson.loads(io.load_text(path))
 
 
