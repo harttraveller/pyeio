@@ -29,10 +29,11 @@ VariantFileExtension = Literal[
 
 variant_file_extensions: tuple[str, ...] = get_args(VariantFileExtension)
 
-# MimeType = Literal[
-#     "application/netcdf",
-#     "application/x-netcdf",
-# ]
+MimeType = Literal[
+    "application/jsonl",
+    "application/netcdf",
+    "application/x-netcdf",
+]
 
 
 variant_to_standard: dict[VariantFileExtension, FileExtension] = {

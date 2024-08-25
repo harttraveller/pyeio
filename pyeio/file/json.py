@@ -4,6 +4,7 @@ from pyeio.core.types import PathLike
 from pyeio.core import io
 from typing import TypeVar, Callable
 
+
 T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
 
