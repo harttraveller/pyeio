@@ -1,7 +1,5 @@
 import orjson
-from pathlib import Path
 from pyeio.core.types import FilePath
-from pyeio.core import io
 from typing import TypeVar, Callable
 from urllib.parse import urlparse
 from functools import cache
@@ -53,7 +51,7 @@ def load(url: str, cache: bool = False) -> JSON:
 #         )
 
 
-def parse(): ...
+# def parse(): ...
 
 
 # def read(loc: str) -> JSON: ...
