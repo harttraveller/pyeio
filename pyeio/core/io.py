@@ -1,8 +1,8 @@
-from pyeio.core.types import FileLocation
+from pyeio.core.types import FilePath
 
 
 # text
-def load_text(path: FileLocation) -> str:
+def load_text(path: FilePath) -> str:
     with open(path) as file:
         data = file.read()
     file.close()
