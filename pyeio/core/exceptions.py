@@ -1,5 +1,5 @@
 from typing import Optional
-from pyeio.core.types import file_extensions
+from pyeio.types import file_extensions
 
 
 class UnexpectedError(Exception):

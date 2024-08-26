@@ -1,4 +1,4 @@
-from pyeio.core.types import FilePath
+from pyeio.types import FilePath
 
 
 def load(url: str) -> bytes: ...

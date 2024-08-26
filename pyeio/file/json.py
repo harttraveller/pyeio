@@ -1,5 +1,6 @@
 import orjson
-from pyeio.core.types import FilePath
+from pathlib import Path
+from pyeio.types import FilePath
 from typing import TypeVar, Callable
 from urllib.parse import urlparse
 from functools import cache
@@ -8,13 +9,15 @@ T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
-def open(path: FilePath) -> JSON: ...
+def open(path: FilePath) -> JSON:
+    path = Path(path)
+    # path.name.split(".")[-1].lower()
 
 
 def save(data: JSON, path: FilePath): ...
 
 
-def load(url: str, cache: bool = False) -> JSON:
+def load(url: str, cache: bool = False, force: bool = False) -> JSON:
     """
     Load some JSON data from the web.
 
