@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import Literal, get_args
 
-ResourceLocation = str | Path
+FileLocation = str | Path
 
 FileExtension = Literal[
     "json",

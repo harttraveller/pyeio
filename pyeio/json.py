@@ -1,6 +1,6 @@
 import orjson
 from pathlib import Path
-from pyeio.core.types import ResourceLocation
+from pyeio.core.types import FileLocation
 from pyeio.core import io
 from typing import TypeVar, Callable
 
@@ -9,7 +9,11 @@ T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
-def load(loc: ResourceLocation) -> JSON:
+def load(loc: FileLocation) -> JSON:
+    if isinstance(loc, str):
+        # todo.fix: check to see if url propertly
+        if loc.startswith("http"):
+            ...
     if isinstance(loc, Path):
         text: str = io.load_text(loc)
         data: JSON = orjson.loads(text)
