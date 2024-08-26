@@ -18,6 +18,7 @@ zstandard = { version = "^0.23.0", optional = true }
 netcdf4 = { version = "^1.7.1.post2", optional = true }
 numpy = { version = "^2.1.0", optional = true }
 pandas = { version = "^2.2.2", optional = true }
+xmltodict = { version = "^0.13.0", optional = true }
 
 [tool.poetry.extras]
 json = ["orjson"]
@@ -25,7 +26,8 @@ jsonl = ["orjson"]
 toml = ["toml"]
 yaml = ["pyyaml"]
 zst = ["zstandard"]
-nc = ["netcdf4", "numpy"]
+xml = ["xmltodict"]
+# nc = ["netcdf4", "numpy"]
 # csv
 # gz
 # xz
