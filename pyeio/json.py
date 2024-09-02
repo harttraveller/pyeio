@@ -1,12 +1,12 @@
 from pathlib import Path
 from typing import TypeVar, Generator
-from pyeio.core.exceptions import InvalidFileExtensionError, MissingExtraError
+from pyeio.core.exceptions import InvalidFileExtensionError
 from pyeio.core import io
 
 try:
-    import orjson
+    import orjson as _json
 except:
-    raise MissingExtraError(extra="json")
+    import json as _json
 
 
 T = TypeVar("T", bound="JSON")
@@ -20,7 +20,7 @@ def open(file: str | Path) -> JSON:
         raise InvalidFileExtensionError(extension=file_extension, expected="json")
     else:
         text = io.load_text(path=file_path)
-        data = orjson.loads(text)
+        data = _json.loads(text)
     return data
 
 
