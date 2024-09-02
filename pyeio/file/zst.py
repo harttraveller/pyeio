@@ -1,9 +1,7 @@
 from pyeio.types import FilePath
 
 
-def read():
-    """"""
-    ...
+def read(): ...
 
 
 def compress(source: FilePath, target: FilePath): ...
