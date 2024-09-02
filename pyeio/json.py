@@ -33,6 +33,10 @@ def walk(path: str | Path) -> Generator[tuple[str, JSON], None, None]:
         yield (str(file.absolute()), load(file))
 
 
+def get(url: str) -> JSON:
+    raise NotImplementedError()
+
+
 # from pathlib import Path
 
 

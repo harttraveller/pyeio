@@ -34,8 +34,7 @@ The following methods are standard across all file format modules.
 
 ### `parse`
 
-This parses
-
+This parses data from a string or byte string.
 
 ### `load`
 
