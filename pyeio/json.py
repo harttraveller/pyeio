@@ -1,6 +1,6 @@
 from pathlib import Path
 from typing import TypeVar, Generator, Optional
-from pyeio import text
+from pyeio import txt
 
 try:
     import orjson
@@ -21,7 +21,7 @@ def dump(data: JSON) -> str:
 
 
 def load(path: str | Path) -> JSON:
-    return parse(text.load(path=Path(path)))
+    return parse(txt.load(path=Path(path)))
 
 
 def save():
