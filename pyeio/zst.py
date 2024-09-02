@@ -56,16 +56,6 @@ class StreamReader:
         return [self.read_chunk() for _ in range(n)]
 
 
-def load():
-    """Decompress and load entire file into memory."""
-    raise NotImplementedError()
-
-
-def save():
-    """Compress and save serializable data to .zst file."""
-    raise NotImplementedError()
-
-
 def read(
     path: str | Path,
     delimiter: bytes = b"\n",
@@ -80,6 +70,16 @@ def read(
     )
     for chunk in reader:
         yield chunk
+
+
+def load():
+    """Decompress and load entire file into memory."""
+    raise NotImplementedError()
+
+
+def save():
+    """Compress and save serializable data to .zst file."""
+    raise NotImplementedError()
 
 
 def compress():
