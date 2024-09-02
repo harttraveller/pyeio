@@ -2,14 +2,15 @@ from pathlib import Path
 
 
 # text
-def load_text(path: str | Path) -> str:
+def load(path: str | Path) -> str:
     with open(path) as file:
         data = file.read()
     file.close()
     return data
 
 
-def save_text(): ...
+# def save_text(text: str, path: str | Path) -> None:
+#     with open(path, "w") as file:
 
 
 def load_text_lines(): ...
