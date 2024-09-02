@@ -4,6 +4,9 @@ from pyeio.types import FilePath
 def read(): ...
 
 
+def read_lines(): ...
+
+
 def compress(source: FilePath, target: FilePath): ...
 
 
