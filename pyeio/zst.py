@@ -11,11 +11,13 @@ class StreamReader:
         self,
         path: str | Path,
         delimiter: bytes,
+        handler: Callable[[bytes], Any] = lambda x: x,
         size: int = 1 << 20,
     ) -> None:
         self.path = path
         self.delimiter = delimiter
         self.size = size
+        self.handler = handler
         self.reset()
 
     def reset(self) -> None:
@@ -23,7 +25,7 @@ class StreamReader:
             max_window_size=MAX_WINDOW_SIZE,
         ).stream_reader(open(self.path, "rb"))
         self.buffer = b""
-        self.lines = []
+        self.chunks = []
 
     def __iter__(self) -> Generator[bytes, None, None]:
         while True:
@@ -32,16 +34,18 @@ class StreamReader:
             except StopIteration:
                 break
 
-    def __next__(self) -> bytes:
-        if len(self.lines):
-            return self.lines.pop(0)
+    def __next__(self) -> bytes | Any:
+        if len(self.chunks):
+            current = self.chunks.pop(0)
+            return self.handler(current)
         else:
             chunk = self.stream.read(self.size)
             if chunk:
-                self.lines = (self.buffer + chunk).split(self.delimiter)
-                self.buffer = self.lines[-1]
-                self.lines = self.lines[:-1]
-                return self.lines.pop(0)
+                self.chunks = (self.buffer + chunk).split(self.delimiter)
+                self.buffer = self.chunks[-1]
+                self.chunks = self.chunks[:-1]
+                current = self.chunks.pop(0)
+                return self.handler(current)
             else:
                 raise StopIteration()
 
@@ -52,8 +56,37 @@ class StreamReader:
         return [self.read_chunk() for _ in range(n)]
 
 
-def load(): ...
+def load():
+    """Decompress and load entire file into memory."""
+    raise NotImplementedError()
 
 
-def read(path: str | Path, delimiter: bytes = b"\n"):
-    reader = StreamReader(path=path, delimiter=delimiter)
+def save():
+    """Compress and save serializable data to .zst file."""
+    raise NotImplementedError()
+
+
+def read(
+    path: str | Path,
+    delimiter: bytes = b"\n",
+    handler: Callable[[bytes], Any] = lambda x: x,
+    size: int = 1 << 20,
+) -> Generator[bytes, None, None]:
+    reader = StreamReader(
+        path=path,
+        delimiter=delimiter,
+        handler=handler,
+        size=size,
+    )
+    for chunk in reader:
+        yield chunk
+
+
+def compress():
+    """Compress an existing file to ZST."""
+    raise NotImplementedError()
+
+
+def decompress():
+    """Decompress an existing file."""
+    raise NotImplementedError()
