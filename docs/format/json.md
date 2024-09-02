@@ -1,3 +1,10 @@
+---
+is.text: true
+is.archive: false
+is.visual: false
+is.visual.
+is.audio
+---
 # JSON
 
 

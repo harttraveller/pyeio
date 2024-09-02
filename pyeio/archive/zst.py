@@ -90,3 +90,18 @@ def compress():
 def decompress():
     """Decompress an existing file."""
     raise NotImplementedError()
+
+
+# from pyeio.core.types import FilePath
+
+
+# def read(): ...
+
+
+# def read_lines(): ...
+
+
+# def compress(source: FilePath, target: FilePath): ...
+
+
+# def decompress(source: FilePath, target: FilePath): ...
