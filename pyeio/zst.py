@@ -71,7 +71,7 @@ def read(
     delimiter: bytes = b"\n",
     handler: Callable[[bytes], Any] = lambda x: x,
     size: int = 1 << 20,
-) -> Generator[bytes, None, None]:
+) -> Generator[bytes, None, None] | Generator[Any, None, None]:
     reader = StreamReader(
         path=path,
         delimiter=delimiter,
