@@ -49,10 +49,10 @@ class StreamReader:
             else:
                 raise StopIteration()
 
-    def read_chunk(self) -> bytes:
+    def read_chunk(self) -> bytes | Any:
         return self.__next__()
 
-    def read_chunks(self, n: int) -> list[bytes]:
+    def read_chunks(self, n: int) -> list[bytes] | list[Any]:
         return [self.read_chunk() for _ in range(n)]
 
 
