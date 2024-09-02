@@ -1,7 +1,6 @@
 from pathlib import Path
 from warnings import warn
 from .types import (
-    FilePath,
     FileExtension,
     file_extensions,
     variant_file_extensions,
@@ -9,7 +8,7 @@ from .types import (
 )
 
 
-def parse_file_extension(path: FilePath) -> FileExtension | None:
+def parse_file_extension(path: str | Path) -> FileExtension | None:
     """
     Parse the file extension from a given file path.
 

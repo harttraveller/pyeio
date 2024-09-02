@@ -30,7 +30,7 @@ class InvalidFileExtensionError(Exception):
         super().__init__(self.message)
 
 
-class MissingDependencyError(Exception):
+class MissingExtraError(Exception):
     def __init__(self, extra: str, *args: object) -> None:
         self.message = f"To use this module install: '{__package__}[{extra}]'"
         super().__init__(*args)

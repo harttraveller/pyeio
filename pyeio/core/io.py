@@ -1,8 +1,8 @@
-from pyeio.types import FilePath
+from pathlib import Path
 
 
 # text
-def load_text(path: FilePath) -> str:
+def load_text(path: str | Path) -> str:
     with open(path) as file:
         data = file.read()
     file.close()
@@ -22,6 +22,9 @@ def stream_text(): ...
 
 
 def stream_text_lines(): ...
+
+
+def stream_text_chars(): ...
 
 
 def stream_text_segments():
