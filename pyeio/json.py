@@ -13,17 +13,7 @@ T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
-def walk(
-    path: str | Path,
-) -> Generator[tuple[str, JSON], None, None]:
-    # todo: is a directory check
-    for file in Path(path).glob("**/*.json"):
-        yield (str(file.absolute()), open(file))
-
-
 # todo: consolidate walk with open via is a directory check
-
-
 def open(file: str | Path) -> JSON:
     file_path = Path(file)
     file_extension = file_path.name.split(".")[-1].lower()
@@ -33,6 +23,14 @@ def open(file: str | Path) -> JSON:
         text = io.load_text(path=file_path)
         data = _json.loads(text)
     return data
+
+
+def walk(
+    path: str | Path,
+) -> Generator[tuple[str, JSON], None, None]:
+    # todo: is a directory check
+    for file in Path(path).glob("**/*.json"):
+        yield (str(file.absolute()), open(file))
 
 
 def save():
