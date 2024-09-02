@@ -1,5 +1,6 @@
 from typing import Optional
-from pyeio.types import file_extensions
+from pyeio.core.types import file_extensions
+from pyeio.__meta__ import __package__
 
 
 class UnexpectedError(Exception):
@@ -27,6 +28,12 @@ class InvalidFileExtensionError(Exception):
         self.expected = expected
         self.message = f"Extension '{self.extension}' should be '{self.expected}'"
         super().__init__(self.message)
+
+
+class MissingDependencyError(Exception):
+    def __init__(self, extra: str, *args: object) -> None:
+        self.message = f"To use this module install: '{__package__}[{extra}]'"
+        super().__init__(*args)
 
 
 class UnknownExtensionError(Exception):
