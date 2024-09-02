@@ -89,6 +89,11 @@ def load(url: str, cache: bool = False, force: bool = False) -> JSON:
 
 # def parse(): ...
 
+# todo: walk directories, create generator
+# * flatten parameter, either dict[path, data], just data as list | generator
+# def walk(): ...
+
+# def lazy_walk (generator)
 
 # # todo
 # # fix issues with file, like encoding or parsing stuff
