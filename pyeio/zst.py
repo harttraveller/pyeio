@@ -2,6 +2,7 @@ from pathlib import Path
 from typing import Callable, Generator, Any
 from zstandard import ZstdDecompressor
 
+
 MAX_WINDOW_SIZE: int = 1 << 31
 
 
