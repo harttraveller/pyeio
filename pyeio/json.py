@@ -1,6 +1,6 @@
 import orjson
 from pathlib import Path
-from pyeio.types import FilePath
+from pyeio.core.types import FilePath
 from pyeio.core.exceptions import InvalidFileExtensionError
 from pyeio.core import io
 from typing import TypeVar
@@ -13,19 +13,6 @@ JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
 def read(path: FilePath) -> JSON:
-    """
-    This function opens a file at the specified path, checks if it has a .json extension,
-    reads its contents, and parses it as JSON data.
-
-    Args:
-        path (FilePath): The path to the JSON file to be opened and parsed.
-
-    Raises:
-        InvalidFileExtensionError: If the file does not have a .json extension.
-
-    Returns:
-        JSON: The parsed JSON data as a Python object (dict, list, str, int, float, or bool).
-    """
     file_path = Path(path)
     file_extension = file_path.name.split(".")[-1].lower()
     if file_extension != "json":
@@ -36,7 +23,7 @@ def read(path: FilePath) -> JSON:
     return data
 
 
-def save(data: JSON, path: FilePath): ...
+# def save(data: JSON, path: FilePath): ...
 
 
 # def load(loc: FileLocation) -> JSON:
