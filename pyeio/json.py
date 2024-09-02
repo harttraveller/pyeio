@@ -18,7 +18,6 @@ def open(path: str | Path) -> JSON:
 
 
 def walk(path: str | Path) -> Generator[tuple[str, JSON], None, None]:
-    # todo: is a directory check
     for file in Path(path).glob("**/*.json"):
         yield (str(file.absolute()), open(file))
 
