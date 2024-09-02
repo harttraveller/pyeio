@@ -7,8 +7,6 @@ hide:
 
 ## JSON
 
-JSON files load to either a dict or list datatype, and are always fully in memory.
-
 - [ ] Basic IO
 - json
 
