@@ -19,6 +19,7 @@ netcdf4 = { version = "^1.7.1.post2", optional = true }
 numpy = { version = "^2.1.0", optional = true }
 pandas = { version = "^2.2.2", optional = true }
 xmltodict = { version = "^0.13.0", optional = true }
+avro = { version = "^1.12.0", optional = true }
 
 [tool.poetry.extras]
 json = ["orjson"]
@@ -27,6 +28,7 @@ toml = ["toml"]
 yaml = ["pyyaml"]
 zst = ["zstandard"]
 xml = ["xmltodict"]
+avro = ["avro"]
 # nc = ["netcdf4", "numpy"]
 # csv
 # gz
