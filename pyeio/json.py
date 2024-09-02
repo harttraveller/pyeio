@@ -1,12 +1,12 @@
 from pathlib import Path
 from typing import TypeVar, Generator, Optional
 from pyeio import txt
-from pyeio.core.exceptions import InvalidFileExtensionError
+from pyeio.core.exceptions import InvalidFileExtensionError, MissingExtraError
 
 try:
     import orjson
 except ImportError:
-    raise
+    raise MissingExtraError("json")
 
 
 T = TypeVar("T", bound="JSON")
