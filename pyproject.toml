@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyeio"
-version = "0.1.1"
+version = "0.1.2"
 description = "Python package for easy data input output handling."
 readme = "README.md"
 repository = "https://github.com/harttraveller/pyeio"
@@ -29,7 +29,7 @@ yaml = ["pyyaml"]
 zst = ["zstandard"]
 xml = ["xmltodict"]
 avro = ["avro"]
-# nc = ["netcdf4", "numpy"]
+nc = ["netcdf4", "numpy"]
 # csv
 # gz
 # xz
