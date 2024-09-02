@@ -1,4 +1,4 @@
-from pyeio.types import FilePath
+from pyeio.core.types import FilePath
 
 
 def read(): ...
