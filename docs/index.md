@@ -18,7 +18,7 @@ pip install 'pyeio[all]'
 
 !!! note
     Support for some formats is included by proxy in others. For instance, support for JSONL is included in JSON, and vice versa.
-
+<!--
 ## Getting Started
 
 
@@ -65,4 +65,4 @@ This parses data from a string or byte string.
 
 
 
-
+ -->
