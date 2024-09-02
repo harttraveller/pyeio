@@ -2,6 +2,7 @@ import orjson
 from pathlib import Path
 from pyeio.types import FilePath
 from pyeio.core.exceptions import InvalidFileExtensionError
+from pyeio.core import io
 from typing import TypeVar
 
 # from urllib.parse import urlparse
@@ -15,7 +16,11 @@ def open(path: FilePath) -> JSON:
     file_path = Path(path)
     file_extension = file_path.name.split(".")[-1].lower()
     if file_extension != "json":
-        raise
+        raise InvalidFileExtensionError(extension=file_extension, expected="json")
+    else:
+        text = io.load_text(path=file_path)
+        data = orjson.loads(text)
+    return data
 
 
 def save(data: JSON, path: FilePath): ...
