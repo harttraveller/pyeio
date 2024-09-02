@@ -30,6 +30,17 @@ zst = ["zstandard"]
 xml = ["xmltodict"]
 avro = ["avro"]
 nc = ["netcdf4", "numpy"]
+all = [
+    "toml",
+    "orjson",
+    "pyyaml",
+    "zstandard",
+    "netcdf4",
+    "numpy",
+    "pandas",
+    "xmltodict",
+    "avro",
+]
 # csv
 # gz
 # xz
