@@ -13,14 +13,13 @@ T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
-# todo: consolidate walk with open via is a directory check
-def open(file: str | Path) -> JSON:
-    file_path = Path(file)
-    file_extension = file_path.name.split(".")[-1].lower()
+def open(path: str | Path) -> JSON:
+    path = Path(path)
+    file_extension = path.name.split(".")[-1].lower()
     if file_extension != "json":
         raise InvalidFileExtensionError(extension=file_extension, expected="json")
     else:
-        text = io.load_text(path=file_path)
+        text = io.load_text(path=path)
         data = _json.loads(text)
     return data
 
