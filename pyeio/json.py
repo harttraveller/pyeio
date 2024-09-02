@@ -8,8 +8,6 @@ try:
 except:
     raise MissingExtraError(extra="json")
 
-# from urllib.parse import urlparse
-# from functools import cache
 
 T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
