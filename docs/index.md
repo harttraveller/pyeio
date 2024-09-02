@@ -1,8 +1,15 @@
 # pyeio
 
-This is a python library for data input/output operations. Note that prioritizes developer experience, standardization, and global interoperability/format support over speed. For instance, this library uses the built-in `json` module for handling JSON data. If you want something faster for JSON, you should use [orjson](https://github.com/ijl/orjson), or [msgspec](https://jcristharif.com/msgspec/).
+This is a python library for data input/output operations. This library prioritizes developer experience, standardization, and global interoperability/format support over speed. For instance, if you want something faster than [orjson](https://github.com/ijl/orjson) for handling JSON data, you should something like [msgspec](https://jcristharif.com/msgspec/).
+
+## TLDR
+
+To install
 
 ## Getting Started
+
+
+## Important Details
 
 
 
@@ -34,6 +41,13 @@ This parses
 
 
 ## Formats
+
+## Targets
+
+- Native python data structures
+- Dataframes
+- Numpy arrays
+- Specialized
 
 
 
