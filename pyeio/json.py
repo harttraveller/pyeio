@@ -15,7 +15,7 @@ T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
-def read(file: str | Path) -> JSON:
+def load(file: str | Path) -> JSON:
     file_path = Path(file)
     file_extension = file_path.name.split(".")[-1].lower()
     if file_extension != "json":
@@ -26,73 +26,20 @@ def read(file: str | Path) -> JSON:
     return data
 
 
+def save():
+    raise NotImplementedError()
+
+
 def walk(
-    directory: str | Path,
+    path: str | Path,
 ) -> Generator[tuple[str, JSON], None, None]:
-    for file in Path(directory).glob("**/*.json"):
-        yield (str(file.absolute()), read(file))
+    # todo: is a directory check
+    for file in Path(path).glob("**/*.json"):
+        yield (str(file.absolute()), load(file))
 
 
-# def save(data: JSON, path: FilePath): ...
+def read(data: str | bytes) -> JSON: ...
 
 
-# def load(loc: FileLocation) -> JSON:
-#     if isinstance(loc, str):
-#         parse_result = urlparse(loc)
-#         if len(parse_result.scheme):
-#             # is url, handle...
-#         else:
-
-#         # todo.fix: check to see if url propertly
-#         if loc.startswith("http"):
-#             ...
-#     if isinstance(loc, Path):
-#         text: str = io.load_text(loc)
-#         data: JSON = orjson.loads(text)
-#         return data
-#     elif isinstance(loc, str):
-#         # do check
-#         ...
-#     else:
-#         raise TypeError(
-#             "Resource location must be pathlib.Path or str (file path or URL)."
-#         )
-
-
-# def parse(): ...
-
-
-# def read(loc: str) -> JSON: ...
-
-# def append(): ...
-
-
-# def apply(): ...
-
-
-# def parse(): ...
-
-# todo: walk directories, create generator
-# * flatten parameter, either dict[path, data], just data as list | generator
-# def walk(): ...
-
-# def lazy_walk (generator)
-
-# # todo
-# # fix issues with file, like encoding or parsing stuff
-# # def fix(): ...
-
-
-# # apply operation on file to change
-# # not too useful here, but useful for recursive apply
-# # def apply(): ...
-
-
-# # def load_recursive(): ...
-
-
-# # def apply_recursive(): ...
-
-# # todo: get recursive from webpage or online directory
-# # webpage: eg - scrape all json links and download to local dir
-# # dir: eg - s3 bucket, dl all
+def dump(data: JSON, indent: int | None = None) -> str:
+    raise NotImplementedError()
