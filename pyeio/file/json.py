@@ -12,7 +12,7 @@ T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
-def open(path: FilePath) -> JSON:
+def read(path: FilePath) -> JSON:
     """
     This function opens a file at the specified path, checks if it has a .json extension,
     reads its contents, and parses it as JSON data.
@@ -37,20 +37,6 @@ def open(path: FilePath) -> JSON:
 
 
 def save(data: JSON, path: FilePath): ...
-
-
-def load(url: str, cache: bool = False, force: bool = False) -> JSON:
-    """
-    Load some JSON data from the web.
-
-    Args:
-        url (str): The URL for the JSON file.
-        cache (bool): Whether to cache the data in memory. Defaults to False.
-
-    Returns:
-        JSON: JSON data
-    """
-    ...
 
 
 # def load(loc: FileLocation) -> JSON:
