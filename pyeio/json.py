@@ -1,7 +1,11 @@
-import json as pyjson
 from pathlib import Path
 from typing import TypeVar, Generator, Optional
 from pyeio import text
+
+try:
+    import orjson
+except ImportError:
+    raise
 
 
 T = TypeVar("T", bound="JSON")
@@ -9,11 +13,11 @@ JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
 def parse(data: str | bytes) -> JSON:
-    return pyjson.loads(data)
+    return orjson.loads(data)
 
 
 def dump(data: JSON) -> str:
-    return pyjson.dumps(data)
+    return orjson.dumps(data).decode()
 
 
 def load(path: str | Path) -> JSON:
