@@ -15,7 +15,7 @@ class UnexpectedError(Exception):
         super().__init__(self.message)
 
 
-class InvalidExtensionError(Exception):
+class InvalidFileExtensionError(Exception):
     """Raised when the provided extension does not match the expected extension(s)."""
 
     def __init__(

@@ -1,17 +1,21 @@
 import orjson
 from pathlib import Path
 from pyeio.types import FilePath
-from typing import TypeVar, Callable
-from urllib.parse import urlparse
-from functools import cache
+from pyeio.core.exceptions import InvalidFileExtensionError
+from typing import TypeVar
+
+# from urllib.parse import urlparse
+# from functools import cache
 
 T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
 def open(path: FilePath) -> JSON:
-    path = Path(path)
-    # path.name.split(".")[-1].lower()
+    file_path = Path(path)
+    file_extension = file_path.name.split(".")[-1].lower()
+    if file_extension != "json":
+        raise
 
 
 def save(data: JSON, path: FilePath): ...
