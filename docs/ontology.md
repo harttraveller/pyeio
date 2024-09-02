@@ -9,6 +9,7 @@ Any given data format has certain structural properties. Many data formats share
     - text_special_embedded (pdf)
     - special (jpeg, xlsx)
 
+- audio
 - table
 - image
     - image/frame sequence (gif, mp4)
