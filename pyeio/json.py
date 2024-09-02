@@ -30,7 +30,7 @@ def save(data: JSON, path: str | Path, overwrite: bool = False) -> None:
     file_extension = path.name.split(".")[-1]
     if file_extension.lower() != "json":
         raise InvalidFileExtensionError(extension=file_extension, expected="json")
-    txt.save(data=dump(data), path=path)
+    txt.save(data=dump(data), path=path, overwrite=overwrite)
 
 
 def walk(path: str | Path) -> Generator[tuple[str, JSON], None, None]:
