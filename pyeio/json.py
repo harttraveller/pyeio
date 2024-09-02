@@ -1,13 +1,13 @@
 from pathlib import Path
 from typing import TypeVar
 from pyeio.core.types import FilePath
-from pyeio.core.exceptions import InvalidFileExtensionError, MissingDependencyError
+from pyeio.core.exceptions import InvalidFileExtensionError, MissingExtraError
 from pyeio.core import io
 
 try:
     import orjson
 except:
-    raise MissingDependencyError(extra="json")
+    raise MissingExtraError(extra="json")
 
 # from urllib.parse import urlparse
 # from functools import cache
