@@ -1,12 +1,12 @@
 from pathlib import Path
 from typing import TypeVar, Generator
-from pyeio.core.exceptions import InvalidFileExtensionError
+from pyeio.core.exceptions import MissingExtraError
 from pyeio.core import io
 
 try:
-    import orjson as _json
-except:
-    import json as _json
+    import orjson
+except ImportError:
+    raise MissingExtraError(extra="json")
 
 
 T = TypeVar("T", bound="JSON")
@@ -14,19 +14,10 @@ JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
 def open(path: str | Path) -> JSON:
-    path = Path(path)
-    file_extension = path.name.split(".")[-1].lower()
-    if file_extension != "json":
-        raise InvalidFileExtensionError(extension=file_extension, expected="json")
-    else:
-        text = io.load_text(path=path)
-        data = _json.loads(text)
-    return data
+    return orjson.loads(io.load_text(path=Path(path)))
 
 
-def walk(
-    path: str | Path,
-) -> Generator[tuple[str, JSON], None, None]:
+def walk(path: str | Path) -> Generator[tuple[str, JSON], None, None]:
     # todo: is a directory check
     for file in Path(path).glob("**/*.json"):
         yield (str(file.absolute()), open(file))
