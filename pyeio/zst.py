@@ -16,6 +16,13 @@ class StreamReader:
         self.path = path
         self.size = size
 
+    def reset(self) -> None:
+        self.stream = ZstdDecompressor(
+            max_window_size=MAX_WINDOW_SIZE,
+        ).stream_reader(open(self.path, "rb"))
+        self.buffer = b""
+        self.lines = []
+
 
 def load(): ...
 
