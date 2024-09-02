@@ -26,9 +26,9 @@ def read(file: str | Path) -> JSON:
     return data
 
 
-def read_all(
+def walk(
     directory: str | Path,
-) -> Generator[tuple[str, JSON], None, dict[str, JSON]] | None:
+) -> Generator[tuple[str, JSON], None, None]:
     for file in Path(directory).glob("**/*.json"):
         yield (str(file.absolute()), read(file))
 
