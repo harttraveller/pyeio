@@ -36,8 +36,8 @@ def walk(
         yield (str(file.absolute()), load(file))
 
 
-def read(data: str | bytes) -> JSON: ...
+def decode(data: str | bytes) -> JSON: ...
 
 
-def dump(data: JSON, indent: int | None = None) -> str:
+def encode(data: JSON, indent: int | None = None) -> str:
     raise NotImplementedError()
