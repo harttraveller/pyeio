@@ -9,6 +9,15 @@ def load(path: str | Path) -> str:
     return data
 
 
+def save(data: str, path: str | Path, overwrite: bool = False) -> None:
+    path = Path(path)
+    if path.exists() and (not overwrite):
+        raise FileExistsError(str(path))
+    with open(path, "w") as file:
+        file.write(data)
+    file.close()
+
+
 # def save_text(text: str, path: str | Path) -> None:
 #     with open(path, "w") as file:
 

@@ -38,24 +38,14 @@ def walk(path: str | Path) -> Generator[tuple[str, JSON], None, None]:
         yield (str(file.absolute()), load(file))
 
 
-def get(url: str) -> JSON:
-    raise NotImplementedError()
-
-
-# from pathlib import Path
-
-
-# def crawl(): ...
-
-
-# def get(url: str):
+# def get(url: str) -> JSON:
 #     raise NotImplementedError()
-
 
 # def download(url: str, path: str | Path):
 #     raise NotImplementedError()
 
 
+# def crawl(): ...
 # # # todo: get recursive from webpage or online directory
 # # # webpage: eg - scrape all json links and download to local dir
 # # # dir: eg - s3 bucket, dl all
