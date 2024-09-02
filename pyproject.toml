@@ -47,8 +47,6 @@ all = [
 # xls
 # xlsb
 # xlsx
-# "meta.configuration" = ["orjson", "toml", "pyyaml"]
-# "meta.datasets" =
 
 [tool.poetry.group.dev]
 optional = true
