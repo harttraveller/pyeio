@@ -21,20 +21,11 @@ class InvalidExtensionError(Exception):
     def __init__(
         self,
         extension: str,
-        allowed: str | set[str],
-        message: Optional[str] = None,
+        expected: str | set[str],
     ) -> None:
-        self.provided = extension
-        self.expected = allowed
-        self.message = f"Got extension '{extension}'."
-        if isinstance(allowed, str):
-            self.message += f"\nExtension should be: '{allowed}'"
-        elif isinstance(allowed, set):
-            self.message += f"\nExtension should be in: '{allowed}"
-        else:
-            raise UnexpectedError()
-        if message:
-            self.message += f"\n{message}"
+        self.extension = extension
+        self.expected = expected
+        self.message = f"Extension '{self.extension}' should be in '{self.expected}'"
         super().__init__(self.message)
 
 
