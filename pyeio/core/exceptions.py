@@ -25,7 +25,7 @@ class InvalidExtensionError(Exception):
     ) -> None:
         self.extension = extension
         self.expected = expected
-        self.message = f"Extension '{self.extension}' should be in '{self.expected}'"
+        self.message = f"Extension '{self.extension}' should be '{self.expected}'"
         super().__init__(self.message)
 
 
