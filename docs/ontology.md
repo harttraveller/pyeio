@@ -2,6 +2,17 @@
 
 Any given data format has certain structural properties. Many data formats share these structural properties, allowing them to be grouped into categories. A broader 'ontology of data formats' is a side effect of building this library.
 
+## Hierarchy
+
+- binary
+    - text (json, py)
+    - text_special_embedded (pdf)
+    - special (jpeg, xlsx)
+
+- table
+- image
+    - image/frame sequence (gif, mp4)
+
 ## Properties
 
 ### Root Level Array vs. Tree
