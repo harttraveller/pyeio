@@ -1,6 +1,6 @@
 from pathlib import Path
 from typing import TypeVar, Generator, Optional
-from pyeio import txt
+from pyeio.base import txt
 from pyeio.core.exceptions import InvalidFileExtensionError, MissingExtraError
 
 try:

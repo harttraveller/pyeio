@@ -1,5 +1,5 @@
 from typing import Optional
-from pyeio.core.types import file_extensions
+from pyeio.index import file_extensions
 from pyeio.__meta__ import __package__
 
 
