@@ -27,3 +27,12 @@ EG:
 pip install 'pyeio[json,toml]'
 ```
 
+## User Story
+
+```python
+import pyeio as po
+
+po.load("path or url")
+
+po.save(data, "path")
+```

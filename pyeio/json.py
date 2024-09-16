@@ -34,9 +34,9 @@ def save(data: JSON, path: str | Path, overwrite: bool = False) -> None:
     txt.save(data=dump(data), path=path, overwrite=overwrite)
 
 
-# def walk(path: str | Path) -> Generator[tuple[str, JSON], None, None]:
-#     for file in Path(path).glob("**/*.json"):
-#         yield (str(file.absolute()), load(file))
+def walk(path: str | Path) -> Generator[tuple[str, JSON], None, None]:
+    for file in Path(path).glob("**/*.json"):
+        yield (str(file.absolute()), load(file))
 
 
 # # def get(url: str) -> JSON:
