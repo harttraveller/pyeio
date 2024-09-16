@@ -1,37 +1,37 @@
 from pathlib import Path
 from typing import TypeVar, Generator, Optional
 
-# from pyeio.text import txt
-# from pyeio.exceptions import InvalidFileExtensionError, MissingExtraError
+from pyeio import txt
+from pyeio.core.exceptions import InvalidFileExtensionError, MissingExtraError
 
-# try:
-#     import orjson
-# except ImportError:
-#     raise MissingExtraError("json")
-
-
-# T = TypeVar("T", bound="JSON")
-# JSON = bool | int | float | str | list[T] | dict[str, T]
+try:
+    import orjson
+except ImportError:
+    raise MissingExtraError("json")
 
 
-# def parse(data: str | bytes) -> JSON:
-#     return orjson.loads(data)
+T = TypeVar("T", bound="JSON")
+JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
-# def dump(data: JSON) -> str:
-#     return orjson.dumps(data).decode()
+def parse(data: str | bytes) -> JSON:
+    return orjson.loads(data)
 
 
-# def load(path: str | Path) -> JSON:
-#     return parse(txt.load(path=Path(path)))
+def dump(data: JSON) -> str:
+    return orjson.dumps(data).decode()
 
 
-# def save(data: JSON, path: str | Path, overwrite: bool = False) -> None:
-#     path = Path(path)
-#     file_extension = path.name.split(".")[-1]
-#     if file_extension.lower() != "json":
-#         raise InvalidFileExtensionError(extension=file_extension, expected="json")
-#     txt.save(data=dump(data), path=path, overwrite=overwrite)
+def load(path: str | Path) -> JSON:
+    return parse(txt.load(path=Path(path)))
+
+
+def save(data: JSON, path: str | Path, overwrite: bool = False) -> None:
+    path = Path(path)
+    file_extension = path.name.split(".")[-1]
+    if file_extension.lower() != "json":
+        raise InvalidFileExtensionError(extension=file_extension, expected="json")
+    txt.save(data=dump(data), path=path, overwrite=overwrite)
 
 
 # def walk(path: str | Path) -> Generator[tuple[str, JSON], None, None]:
