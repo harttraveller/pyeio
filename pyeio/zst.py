@@ -75,24 +75,24 @@ def read(
         yield chunk
 
 
+def compress():
+    """Compress an existing file to ZST."""
+    raise NotImplementedError()
+
+
+def decompress():
+    """Decompress an existing file."""
+    raise NotImplementedError()
+
+
 # def load():
-#     """Decompress and load entire file into memory."""
+#     """Decompress and load entire file into memory as bytes."""
 #     raise NotImplementedError()
 
 
-# def save():
-#     """Compress and save serializable data to .zst file."""
-#     raise NotImplementedError()
-
-
-# def compress():
-#     """Compress an existing file to ZST."""
-#     raise NotImplementedError()
-
-
-# def decompress():
-#     """Decompress an existing file."""
-#     raise NotImplementedError()
+def save(data: bytes, path: str | Path) -> None:
+    """Compress and save serializable data to .zst file."""
+    raise NotImplementedError()
 
 
 # from pyeio.core.types import FilePath
