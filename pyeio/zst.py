@@ -6,7 +6,10 @@ from zstandard import ZstdDecompressor
 MAX_WINDOW_SIZE: int = 1 << 31
 
 
-class StreamReader:
+class Streamer: ...
+
+
+class Reader:
     def __init__(
         self,
         path: str | Path,
@@ -62,7 +65,7 @@ def read(
     handler: Callable[[bytes], Any] = lambda x: x,
     size: int = 1 << 20,
 ) -> Generator[bytes, None, None] | Generator[Any, None, None]:
-    reader = StreamReader(
+    reader = Reader(
         path=path,
         delimiter=delimiter,
         handler=handler,
