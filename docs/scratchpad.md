@@ -11,6 +11,7 @@
 ---
 
 load > load entire file into memory
+get > load entire file into memory, from web
 save > save entire python data structure to file
 
 append > append a row/line to array like data
