@@ -12,21 +12,21 @@ class Streamer: ...
 class Reader:
     def __init__(
         self,
-        path: str | Path,
-        delimiter: bytes,
-        handler: Callable[[bytes], Any] = lambda x: x,
-        size: int = 1 << 20,
+        file_path: str | Path,
+        chunk_delimiter: bytes,
+        chunk_parser: Callable[[bytes], Any] = lambda x: x,
+        block_size_bytes: int = 1 << 20,
     ) -> None:
-        self.path = path
-        self.delimiter = delimiter
-        self.size = size
-        self.handler = handler
+        self.file_path = file_path
+        self.chunk_delimiter = chunk_delimiter
+        self.chunk_parser = chunk_parser
+        self.block_size_bytes = block_size_bytes
         self.reset()
 
     def reset(self) -> None:
         self.stream = ZstdDecompressor(
             max_window_size=MAX_WINDOW_SIZE,
-        ).stream_reader(open(self.path, "rb"))
+        ).stream_reader(open(self.file_path, "rb"))
         self.buffer = b""
         self.chunks = []
 
@@ -40,15 +40,15 @@ class Reader:
     def __next__(self) -> bytes | Any:
         if len(self.chunks):
             current = self.chunks.pop(0)
-            return self.handler(current)
+            return self.chunk_parser(current)
         else:
-            chunk = self.stream.read(self.size)
+            chunk = self.stream.read(self.block_size_bytes)
             if chunk:
-                self.chunks = (self.buffer + chunk).split(self.delimiter)
+                self.chunks = (self.buffer + chunk).split(self.chunk_delimiter)
                 self.buffer = self.chunks[-1]
                 self.chunks = self.chunks[:-1]
                 current = self.chunks.pop(0)
-                return self.handler(current)
+                return self.chunk_parser(current)
             else:
                 raise StopIteration()
 
@@ -60,16 +60,16 @@ class Reader:
 
 
 def read(
-    path: str | Path,
-    delimiter: bytes = b"\n",
-    handler: Callable[[bytes], Any] = lambda x: x,
-    size: int = 1 << 20,
+    file_path: str | Path,
+    chunk_delimiter: bytes = b"\n",
+    block_size: int = 1 << 20,
+    parser: Callable[[bytes], Any] = lambda x: x,
 ) -> Generator[bytes, None, None] | Generator[Any, None, None]:
     reader = Reader(
-        path=path,
-        delimiter=delimiter,
-        handler=handler,
-        size=size,
+        file_path=file_path,
+        chunk_delimiter=chunk_delimiter,
+        block_size_bytes=block_size,
+        chunk_parser=parser,
     )
     for chunk in reader:
         yield chunk
