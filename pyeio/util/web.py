@@ -1,14 +1,25 @@
-from pyeio.types import FilePath
+from pathlib import Path
 
 
-def load(url: str) -> bytes: ...
-
-
-def download(url: str, path: FilePath) -> None:
-    """
-    Download some JSON data
+def get(url: str, progress: bool = False) -> bytes:
+    """_summary_
 
     Args:
         url (str): _description_
-        path (FilePath): _description_
+        progress (bool, optional): _description_. Defaults to False.
+
+    Returns:
+        bytes: _description_
     """
+    ...
+
+
+def download(url: str, path: str | Path, progress: bool = False) -> None:
+    """_summary_
+
+    Args:
+        url (str): _description_
+        path (str | Path): _description_
+        progress (bool, optional): _description_. Defaults to False.
+    """
+    ...
