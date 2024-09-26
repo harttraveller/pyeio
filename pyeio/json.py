@@ -14,16 +14,8 @@ T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
-def parse(data: str | bytes) -> JSON:
-    return orjson.loads(data)
-
-
-def dump(data: JSON) -> str:
-    return orjson.dumps(data).decode()
-
-
 def load(path: str | Path) -> JSON:
-    return parse(txt.load(path=Path(path)))
+    return orjson.loads(txt.load(path=Path(path)))
 
 
 def save(data: JSON, path: str | Path, overwrite: bool = False) -> None:
@@ -31,19 +23,27 @@ def save(data: JSON, path: str | Path, overwrite: bool = False) -> None:
     file_extension = path.name.split(".")[-1]
     if file_extension.lower() != "json":
         raise InvalidFileExtensionError(extension=file_extension, expected="json")
-    txt.save(data=dump(data), path=path, overwrite=overwrite)
+    txt.save(data=orjson.dumps(data).decode(), path=path, overwrite=overwrite)
 
 
-def walk(path: str | Path) -> Generator[tuple[str, JSON], None, None]:
-    for file in Path(path).glob("**/*.json"):
-        yield (str(file.absolute()), load(file))
+def get(url: str) -> JSON:
+    raise NotImplementedError()
 
 
-def fetch(): ...
+# ! unsure
+
+# def parse(data: str | bytes) -> JSON:
+#     return orjson.loads(data)
 
 
-# # def get(url: str) -> JSON:
-# #     raise NotImplementedError()
+# def dump(data: JSON) -> str:
+#     return orjson.dumps(data).decode()
+
+
+# def walk(path: str | Path) -> Generator[tuple[str, JSON], None, None]:
+#     for file in Path(path).glob("**/*.json"):
+#         yield (str(file.absolute()), load(file))
+
 
 # # def download(url: str, path: str | Path):
 # #     raise NotImplementedError()
