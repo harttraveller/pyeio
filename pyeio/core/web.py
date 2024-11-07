@@ -3,7 +3,7 @@ from io import BytesIO
 from pathlib import Path
 from typing import Optional
 from tqdm import tqdm
-from pyeio.base import utils
+from pyeio.core import utils
 
 # todo: add user agent as parameter to remaining functions
 # todo: add cookies to functions
