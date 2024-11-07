@@ -1,5 +1,5 @@
 import json
-from typing import TypeVar
+from typing import Optional
 from pathlib import Path
 from pyeio.base.types import FilePath, JSON
 from pyeio.core import io, web
@@ -35,12 +35,13 @@ def open(
 def save(
     data: JSON,
     path: FilePath,
+    indent: Optional[int] = None,
 ) -> None:
     path = Path(path)
     file_extension = path.name.split(".")[-1]
     if file_extension.lower() != "json":
         raise InvalidFileExtensionError(extension=file_extension, expected="json")
-    io.save_text(data=json.dumps(data), path=path)
+    io.save_text(data=json.dumps(data, indent=indent), path=path)
 
 
 def load(
@@ -51,7 +52,11 @@ def load(
     skip_sizecheck: bool = False,
 ) -> JSON:
     binary_data = web.read_data(
-        url, chunk_size, show_progress, follow_redirects, skip_sizecheck
+        url,
+        chunk_size,
+        show_progress,
+        follow_redirects,
+        skip_sizecheck,
     )
     # todo.fix: need to do character detection and account for when utf-8 fails
     # todo.ext: additionally, do mime detection, data detection, add a bunch of params for exp features
@@ -62,10 +67,23 @@ def load(
 def download(
     url: str,
     path: FilePath,
+    indent: Optional[int] = None,
     chunk_size: int = 1 << 10,
     show_progress: bool = False,
     follow_redirects: bool = True,
     skip_sizecheck: bool = False,
 ) -> None:
-    json_data = load(url, chunk_size, show_progress, follow_redirects, skip_sizecheck)
-    save(json_data, path)
+    json_data: JSON = load(
+        url,
+        chunk_size,
+        show_progress,
+        follow_redirects,
+        skip_sizecheck,
+    )
+    save(data=json_data, path=path, indent=indent)
+
+
+def parse(): ...
+
+
+def dump(): ...
