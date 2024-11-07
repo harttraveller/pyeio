@@ -11,8 +11,8 @@ standard_file_extensions: tuple[StandardFileExtension, ...] = get_args(
 variant_file_extensions: tuple[VariantFileExtension, ...] = get_args(
     VariantFileExtension
 )
-file_extensions: tuple[FileExtension, ...] = get_args(
-    FileExtension,
+file_extensions: tuple[FileExtension, ...] = (
+    standard_file_extensions + variant_file_extensions
 )
 
 

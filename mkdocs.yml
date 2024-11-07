@@ -14,16 +14,7 @@ plugins:
           show_object_full_path: true
           show_root_heading: true
           heading_level: 1
-
-# - mkdocstrings:
-#     handlers:
-#       python:
-#         options:
-#           show_root_heading: true
-#           show_object_full_path: true
-#           allow_inspection: true
-#           show_bases: false
-#           parameter_headings: false
+          show_signature: false
 
 theme:
   name: material
@@ -40,15 +31,11 @@ theme:
   - navigation.indexes
   - navigation.instant
   - navitation.instant.progress
-  # - navigation.footer
   - search.suggest
   - search.share
   - content.code.copy
   - content.code.annotate
   - header.autohide
-
-# extra:
-#   generator: false
 
 # extra_css:
 # - static/extra.css
