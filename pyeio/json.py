@@ -1,11 +1,11 @@
 import json
-from typing import TypeVar
+from typing import TypeVar, Union
 from pathlib import Path
 from pyeio.core import io
 from pyeio.base.exception import InvalidFileExtensionError
 
 T = TypeVar("T", bound="JSON")
-JSON = bool | int | float | str | list[T] | dict[str, T]
+JSON = Union[bool, int, float, str, list[T], dict[str, T]]
 
 
 def open(
