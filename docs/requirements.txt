@@ -1,4 +1,0 @@
-mkdocs-material
-mkdocstrings
-mkdocs-jupyter
-mkdocs-roamlinks-plugin

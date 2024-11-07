@@ -1,8 +1,8 @@
 import json
 from typing import TypeVar
 from pathlib import Path
-from pyeio.base import io
-from pyeio.base.exceptions import InvalidFileExtensionError
+from pyeio.core import io
+from pyeio.base.exception import InvalidFileExtensionError
 
 T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
@@ -14,15 +14,15 @@ def open(
 ) -> JSON:
     """
     This function opens a file and reads its content as a JSON object.
-    It supports both string paths (to files) and pathlib.Path objects.
-    The function will return the parsed JSON data, which can be of type
-    bool, int, float, str, list, or dict, depending on the contents of the file.
+    It supports both string paths (to files) and `pathlib.Path` objects.
+    The function will return the parsed JSON data, which is typed as a
+    union type of possible JSON data types.
 
     Args:
         path (str | Path): The path to the file to be opened and read as a JSON object.
 
     Returns:
-        JSON: Union type of possible JSON data types.
+        JSON: bool | int | float | str | list[JSON] | dict[str, JSON]
     """
     # todo: add file extension check
     # todo: add file existence check
@@ -35,6 +35,17 @@ def save(
     allow_overwrite: bool = False,
     validate_extension: bool = True,
 ) -> None:
+    """_summary_
+
+    Args:
+        data (JSON): _description_
+        path (str | Path): _description_
+        allow_overwrite (bool, optional): _description_. Defaults to False.
+        validate_extension (bool, optional): _description_. Defaults to True.
+
+    Raises:
+        InvalidFileExtensionError: _description_
+    """
     path = Path(path)
     file_extension = path.name.split(".")[-1]
     if file_extension.lower() != "json":
