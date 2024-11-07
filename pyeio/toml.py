@@ -2,7 +2,6 @@ import toml
 from pathlib import Path
 from pyeio.base.types import FilePath, PyTOML, SerializedTOML
 from pyeio.core import io, web
-from pyeio.base.exceptions import IncorrectFileExtensionError
 from pyeio.base import utils
 
 
