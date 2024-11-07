@@ -35,6 +35,9 @@ def save(data: JSON, path: str | Path, overwrite: bool = False) -> None:
 #     return orjson.loads(data)
 
 
+# ingest - ingest and apply handler function at each node/branch of tree
+# apply - same diff, except resave file after, either overwriting, or to new file path
+
 # def dump(data: JSON) -> str:
 #     return orjson.dumps(data).decode()
 
