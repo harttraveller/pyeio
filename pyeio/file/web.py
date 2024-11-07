@@ -3,7 +3,7 @@ from io import BytesIO
 from pathlib import Path
 from typing import Optional
 from tqdm import tqdm
-from pyeio.core import utils
+from pyeio import util
 
 # todo: add user agent as parameter to remaining functions
 # todo: add cookies to functions
@@ -237,7 +237,7 @@ def save_file(
     size = None
     if evaluate_size:
         size = get_resource_size(url)
-    file_name = utils.extract_file_name_from_url(url)
+    file_name = util.extract_file_name_from_url(url)
     with open(path, "wb") as file:
         with tqdm(
             total=size,
@@ -287,7 +287,7 @@ def load_binary(
     if evaluate_size:
         size = get_resource_size(url)
     buffer = BytesIO()
-    file_name = utils.extract_file_name_from_url(url)
+    file_name = util.extract_file_name_from_url(url)
     with tqdm(
         total=size,
         unit_scale=True,

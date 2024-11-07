@@ -1,15 +1,24 @@
 from pathlib import Path
 from datetime import datetime, date, time
-from typing import Literal, TypeVar, Union
+from typing import Literal, TypeVar
 
-FileFormatModule = Literal[
+
+FileType = Literal[
+    "text",
+    "image",
+    "video",
+    "audio",
+    "document",
+]
+
+FileFormat = Literal[
     "json",
     "jsonl",
     "toml",
     "yaml",
 ]
 
-StandardFileExtension = FileFormatModule
+StandardFileExtension = FileFormat
 
 
 VariantFileExtension = Literal[

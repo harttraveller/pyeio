@@ -1,14 +1,14 @@
 from pathlib import Path
 from typing import cast
 from urllib.parse import urlparse
-from pyeio.common import index
-from pyeio.common.types import (
+from pyeio.internal import index
+from pyeio.internal.type import (
     FilePath,
-    FileFormatModule,
+    FileFormat,
     FileExtension,
     StandardFileExtension,
 )
-from pyeio.common.exceptions import (
+from pyeio.internal.exception import (
     UnsupportedFileExtensionError,
     IncorrectFileExtensionError,
     MissingFileExtensionError,
@@ -42,7 +42,7 @@ def extract_file_name_from_url(url: str) -> str:
 
 
 def run_file_extension_validation(
-    module_name: FileFormatModule,
+    module_name: FileFormat,
     url: str | None = None,
     path: FilePath | None = None,
 ) -> None:

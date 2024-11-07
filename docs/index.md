@@ -31,5 +31,9 @@ If you plan on using this library, you should familiarize yourself with it's arc
 Cover:
 
 - Base format modules, available functions, file format ontology and how categories in ontology are 1:1 mapped with functions in format modules
+- Meta format modules
+- Various available tools
+
+
 
  -->

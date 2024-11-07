@@ -1,7 +1,8 @@
 import json
 from pathlib import Path
-from pyeio.common.types import FilePath, PyJSON, SerializedJSON
-from pyeio.core import io, web, utils
+from pyeio.internal.type import FilePath, PyJSON, SerializedJSON
+from pyeio.internal import utils
+from pyeio.file import io, web
 
 
 def parse(data: SerializedJSON) -> PyJSON:

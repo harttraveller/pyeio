@@ -1,7 +1,7 @@
 from typing import Optional
 from pathlib import Path
 from urllib.parse import urlparse
-from pyeio.common.types import FilePath
+from pyeio.internal.type import FilePath
 from pyeio import __info__
 
 
