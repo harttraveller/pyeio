@@ -3,6 +3,12 @@
 
 ## Todo
 
+### Dependencies
+
+- gather file metadata
+- move files
+- rename files
+
 
 
 ### Security
@@ -34,6 +40,8 @@
 - (generic util) look at file/data entropy
 - when downloading files, implement on disk caching for data based on hashes to avoid duplicative downloads?
     - would need to allow bypass
+- pydantic schema generation and validation
+- automated data cleaning
 
 ### Maybe?
 
