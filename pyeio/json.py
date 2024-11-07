@@ -1,16 +1,18 @@
 import json
-from typing import TypeVar, Union
+from typing import TypeVar
 from pathlib import Path
-from pyeio.core import io
-from pyeio.base.exception import InvalidFileExtensionError
-
-T = TypeVar("T", bound="JSON")
-JSON = Union[bool, int, float, str, list[T], dict[str, T]]
+from pyeio.base.types import FilePath, JSON
+from pyeio.core import io, web
+from pyeio.base.exceptions import InvalidFileExtensionError
 
 
+# todo.params:
+# * validate_file_extension
+# * validate_data_structure
+# todo.internal:
+# * add file existence check
 def open(
-    path: str | Path,
-    validate_extension: bool = True,
+    path: FilePath,
 ) -> JSON:
     """
     This function opens a file and reads its content as a JSON object.
@@ -19,35 +21,51 @@ def open(
     union type of possible JSON data types.
 
     Args:
-        path (str | Path): The path to the file to be opened and read as a JSON object.
+        path (FilePath): The path to the file to be opened and read as a JSON object.
 
     Returns:
         JSON: bool | int | float | str | list[JSON] | dict[str, JSON]
     """
-    # todo: add file extension check
-    # todo: add file existence check
     return json.loads(io.open_text(path=Path(path)))
 
 
+# todo.params:
+# allow_file_overwrite: bool = False
+# validate_file_extension: bool = True,
 def save(
     data: JSON,
-    path: str | Path,
-    allow_overwrite: bool = False,
-    validate_extension: bool = True,
+    path: FilePath,
 ) -> None:
-    """_summary_
-
-    Args:
-        data (JSON): _description_
-        path (str | Path): _description_
-        allow_overwrite (bool, optional): _description_. Defaults to False.
-        validate_extension (bool, optional): _description_. Defaults to True.
-
-    Raises:
-        InvalidFileExtensionError: _description_
-    """
     path = Path(path)
     file_extension = path.name.split(".")[-1]
     if file_extension.lower() != "json":
         raise InvalidFileExtensionError(extension=file_extension, expected="json")
-    io.save_text(data=json.dumps(data), path=path, overwrite=allow_overwrite)
+    io.save_text(data=json.dumps(data), path=path)
+
+
+def load(
+    url: str,
+    chunk_size: int = 1 << 10,
+    show_progress: bool = False,
+    follow_redirects: bool = True,
+    skip_sizecheck: bool = False,
+) -> JSON:
+    binary_data = web.read_data(
+        url, chunk_size, show_progress, follow_redirects, skip_sizecheck
+    )
+    # todo.fix: need to do character detection and account for when utf-8 fails
+    # todo.ext: additionally, do mime detection, data detection, add a bunch of params for exp features
+    json_data = json.loads(binary_data.decode("utf-8"))
+    return json_data
+
+
+def download(
+    url: str,
+    path: FilePath,
+    chunk_size: int = 1 << 10,
+    show_progress: bool = False,
+    follow_redirects: bool = True,
+    skip_sizecheck: bool = False,
+) -> None:
+    json_data = load(url, chunk_size, show_progress, follow_redirects, skip_sizecheck)
+    save(json_data, path)
