@@ -1,6 +1,6 @@
 from pytest import raises
 from pyeio import json
-from pyeio.internal.exception import (
+from pyeio.internal.exceptions import (
     MissingFileExtensionError,
     UnsupportedFileExtensionError,
     IncorrectFileExtensionError,

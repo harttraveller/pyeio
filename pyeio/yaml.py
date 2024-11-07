@@ -1,9 +1,8 @@
 import yaml
 from pathlib import Path
-from pyeio.internal.type import FilePath, PyYAML, SerializedYAML
-from pyeio.internal.exception import MissingExtraError
-from pyeio.internal import utils
-from pyeio.file import io, web
+from pyeio.internal.types import FilePath, PyYAML, SerializedYAML
+from pyeio.internal.exceptions import MissingExtraError
+from pyeio.file import io, web, utils
 
 
 try:

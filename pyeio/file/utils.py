@@ -1,14 +1,14 @@
 from pathlib import Path
 from typing import cast
 from urllib.parse import urlparse
-from pyeio.internal import index
-from pyeio.internal.type import (
+from pyeio.internal import data
+from pyeio.internal.types import (
     FilePath,
     FileFormat,
     FileExtension,
     StandardFileExtension,
 )
-from pyeio.internal.exception import (
+from pyeio.internal.exceptions import (
     UnsupportedFileExtensionError,
     IncorrectFileExtensionError,
     MissingFileExtensionError,
@@ -57,10 +57,10 @@ def run_file_extension_validation(
     if file_extension is None:
         raise MissingFileExtensionError(file=file_name)
     file_extension = file_extension.lower()
-    if file_extension not in index.file_extensions:
+    if file_extension not in data.file_extensions:
         raise UnsupportedFileExtensionError(extension=file_extension)
     file_extension = cast(FileExtension, file_extension)
-    allowed_variant_extensions = index.allowed_variants_lookup[module_name]
+    allowed_variant_extensions = data.allowed_variants_lookup[module_name]
     if not (file_extension) in allowed_variant_extensions:
         raise IncorrectFileExtensionError(
             file_extension=file_extension,
@@ -84,3 +84,14 @@ def run_file_extension_validation(
 #     return extension.lower() in allowed
 
 # def raise_invalid_file_extension(extension: str, allowed: set[str]) -> None:
+
+
+# todo
+def rename_file():
+    # todo: rename file on disk
+    ...
+
+
+def get_file_metadata():
+    # todo: get builtin file metadata
+    ...

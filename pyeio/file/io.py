@@ -1,5 +1,5 @@
 from pathlib import Path
-from pyeio.internal.type import FilePath
+from pyeio.internal.types import FilePath
 
 
 def open_text(path: FilePath) -> str:

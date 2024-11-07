@@ -1,8 +1,7 @@
 from pathlib import Path
-from pyeio.internal.type import FilePath, PyTOML, SerializedTOML
-from pyeio.internal.exception import MissingExtraError
-from pyeio.internal import utils
-from pyeio.file import io, web
+from pyeio.internal.types import FilePath, PyTOML, SerializedTOML
+from pyeio.internal.exceptions import MissingExtraError
+from pyeio.file import io, web, utils
 
 try:
     import toml
