@@ -1,0 +1,13 @@
+# todo: need to add format identification and dynamic module loading based on format to avoid taking a massive amount of time to import
+
+
+def open(): ...
+
+
+def save(): ...
+
+
+def load(): ...
+
+
+def download(): ...
