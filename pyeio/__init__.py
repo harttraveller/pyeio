@@ -1,6 +1,5 @@
 from pathlib import Path
 from typing import Any, Literal
-from pyeio import util
 from pyeio.internal.types import FileFormat
 
 # todo.fix: figure out how to do proper type hints

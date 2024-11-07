@@ -20,7 +20,9 @@
 - pdfid - security analysis and deactivation of potentially malicious pdfs
 - detection of whether archive is zip bomb
 - google safebrowsing integration for downloading files, urls
-
+- scrub/randomize exif metadata from images
+- scrub/randomize generic metadata in files
+- add some encryption utilities
 
 ### Analysis
 
