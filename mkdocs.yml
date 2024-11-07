@@ -1,4 +1,4 @@
-site_name: pyeio
+site_name: "PyEIO: Python Easy Input-Output"
 site_url: https://harttraveller.github.io/pyeio
 repo_name: harttraveller/pyeio
 repo_url: https://github.com/harttraveller/pyeio
@@ -28,8 +28,8 @@ theme:
 extra:
   generator: false
 
-extra_css:
-- static/extra.css
+# extra_css:
+# - static/extra.css
 
 markdown_extensions:
 - md_in_html
