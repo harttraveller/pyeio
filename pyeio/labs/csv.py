@@ -2,7 +2,7 @@ import pandas as pd
 from pathlib import Path
 
 
-def load(path: str | Path) -> pd.DataFrame:
+def open(path: str | Path) -> pd.DataFrame:
     return pd.read_csv(path)
 
 

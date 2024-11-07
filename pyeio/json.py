@@ -2,15 +2,15 @@ import json
 from pathlib import Path
 from typing import TypeVar, Generator, Optional
 
-from pyeio import txt
-from pyeio.core.exceptions import InvalidFileExtensionError, MissingExtraError
+from pyeio.base import io
+from pyeio.core.exceptions import InvalidFileExtensionError
 
 T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
-def load(path: str | Path) -> JSON:
-    return json.loads(txt.load(path=Path(path)))
+def open(path: str | Path) -> JSON:
+    return json.loads(io.open_text(path=Path(path)))
 
 
 def save(data: JSON, path: str | Path, overwrite: bool = False) -> None:
@@ -18,11 +18,15 @@ def save(data: JSON, path: str | Path, overwrite: bool = False) -> None:
     file_extension = path.name.split(".")[-1]
     if file_extension.lower() != "json":
         raise InvalidFileExtensionError(extension=file_extension, expected="json")
-    txt.save(data=json.dumps(data), path=path, overwrite=overwrite)
+    io.save_text(data=json.dumps(data), path=path, overwrite=overwrite)
 
 
-def get(url: str) -> JSON:
-    raise NotImplementedError()
+# def load(url: str) -> JSON:
+#     raise NotImplementedError()
+
+
+# def download(url: str, path: str | Path):
+#     raise NotImplementedError()
 
 
 # ! unsure
@@ -38,10 +42,6 @@ def get(url: str) -> JSON:
 # def walk(path: str | Path) -> Generator[tuple[str, JSON], None, None]:
 #     for file in Path(path).glob("**/*.json"):
 #         yield (str(file.absolute()), load(file))
-
-
-# # def download(url: str, path: str | Path):
-# #     raise NotImplementedError()
 
 
 # # def crawl(): ...
