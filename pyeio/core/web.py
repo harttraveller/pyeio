@@ -3,6 +3,7 @@ from io import BytesIO
 from pathlib import Path
 from typing import Optional
 from tqdm import tqdm
+from pyeio.base import utils
 
 # todo: add user agent as parameter to remaining functions
 # todo: add cookies to functions
@@ -44,7 +45,7 @@ def check_if_remote_accepts_byte_range(
     return response.status_code == 206
 
 
-def stream_resource_chunk(
+def load_binary_chunk(
     url: str,
     start: int,
     end: int,
@@ -82,7 +83,7 @@ def stream_resource_chunk(
     return buffer.read()
 
 
-def request_content_length_basic(
+def request_content_length(
     url: str,
     follow_redirects: bool = True,
     user_agent: Optional[str] = None,
@@ -115,7 +116,7 @@ def request_content_length_basic(
         return int(headers["content-length"])
 
 
-def estimate_content_length_dynamic(
+def estimate_resource_size(
     url: str,
     initial_guess: int = 1 << 20,
     max_requests: int = 10,
@@ -188,12 +189,12 @@ def get_resource_size(
     # headers = dict()
     # headers = _add_custom_user_agent_to_headers(user_agent, headers)
     try:
-        size = request_content_length_basic(url, user_agent=user_agent)
+        size = request_content_length(url, user_agent=user_agent)
         return size
     except:
         range_accepted = check_if_remote_accepts_byte_range(url, user_agent=user_agent)
         if range_accepted:
-            size = estimate_content_length_dynamic(url, user_agent=user_agent)
+            size = estimate_resource_size(url, user_agent=user_agent)
             return size
         else:
             raise Exception("cannot estimate remote resource size")
@@ -202,12 +203,12 @@ def get_resource_size(
 def save_file(
     url: str,
     path: str | Path,
-    allow_overwrite: bool = False,
+    overwrite: bool = False,
     chunk_size: int = 1 << 10,
-    show_progress: bool = False,
     follow_redirects: bool = True,
-    skip_sizecheck: bool = False,
-    description: str | None = None,
+    evaluate_size: bool = True,
+    show_progress: bool = False,
+    show_file_name: bool = True,
 ) -> None:
     """
     Download a remote resource to a local file.
@@ -231,11 +232,12 @@ def save_file(
         None
     """
     path = Path(path)
-    if path.exists() and not allow_overwrite:
+    if path.exists() and not overwrite:
         raise FileExistsError(str(path))
     size = None
-    if not skip_sizecheck:
+    if evaluate_size:
         size = get_resource_size(url)
+    file_name = utils.extract_file_name_from_url(url)
     with open(path, "wb") as file:
         with tqdm(
             total=size,
@@ -243,7 +245,7 @@ def save_file(
             unit="B",
             unit_divisor=chunk_size,
             disable=not show_progress,
-            desc=url.split("/")[-1] if description is None else description,
+            desc=file_name if show_file_name else None,
             ncols=80,
         ) as bar:
             with httpx.stream(
@@ -255,13 +257,13 @@ def save_file(
     file.close()
 
 
-def read_data(
+def load_binary(
     url: str,
     chunk_size: int = 1 << 10,
-    show_progress: bool = False,
     follow_redirects: bool = True,
-    skip_sizecheck: bool = False,
-    description: str | None = None,
+    evaluate_size: bool = True,
+    show_progress: bool = False,
+    show_file_name: bool = True,
 ) -> bytes:
     """
     Read a remote resource and return its content as bytes.
@@ -282,16 +284,17 @@ def read_data(
         Exception: If there's an error during the download process.
     """
     size = None
-    if not skip_sizecheck:
+    if evaluate_size:
         size = get_resource_size(url)
     buffer = BytesIO()
+    file_name = utils.extract_file_name_from_url(url)
     with tqdm(
         total=size,
         unit_scale=True,
         unit="B",
         unit_divisor=chunk_size,
         disable=not show_progress,
-        desc=url.split("/")[-1] if description is None else description,
+        desc=file_name if show_file_name else None,
         ncols=80,
     ) as bar:
         with httpx.stream("GET", url, follow_redirects=follow_redirects) as response:
