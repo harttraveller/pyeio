@@ -42,6 +42,7 @@
     - would need to allow bypass
 - pydantic schema generation and validation
 - automated data cleaning
+- when there isn't any file extension, and the automatic loaders are used, the system should try and use python-magic to identify the file format
 
 ### Maybe?
 

@@ -2,41 +2,35 @@ from pathlib import Path
 from datetime import datetime, date, time
 from typing import Literal, TypeVar, Union
 
-FileExtension = Literal[
+FileFormatModule = Literal[
     "json",
     "jsonl",
-    # "toml",
-    # "yaml",
-    # "xml",
-    # "md",
-    # "jpeg",
-    # "zst",
-    # "nc",
+    "toml",
+    "yaml",
 ]
+
+StandardFileExtension = FileFormatModule
 
 
 VariantFileExtension = Literal[
     "ndjson",
     "jsonlines",
-    # "jpg",
-    # "yml",
-    # "markdown",
+    "yml",
 ]
 
+FileExtension = StandardFileExtension | VariantFileExtension
 
 MimeType = Literal[
     "application/json",
     "application/jsonl",
-    # "application/netcdf",
-    # "application/x-netcdf",
 ]
 
 FilePath = str | Path
 
 # ! Python Data Types
 
-JSON_TYPE = TypeVar("JSON_TYPE", bound="JSON")
-JSON = Union[
+JSON_TYPE = TypeVar("JSON_TYPE", bound="PyJSON")
+PyJSON = Union[
     bool,
     int,
     float,
@@ -44,9 +38,10 @@ JSON = Union[
     list[JSON_TYPE],
     dict[str, JSON_TYPE],
 ]
+SerializedJSON = str | bytes | bytearray
 
-TOML_TYPE = TypeVar("TOML_TYPE", bound="TOML")
-TOML = Union[
+TOML_TYPE = TypeVar("TOML_TYPE", bound="PyTOML")
+PyTOML = Union[
     bool,
     int,
     float,

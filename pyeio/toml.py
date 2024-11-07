@@ -1,14 +1,14 @@
 import toml
 from pathlib import Path
-from pyeio.common.types import FilePath, TOML
+from pyeio.base.types import FilePath, PyTOML
 from pyeio.core import io
-from pyeio.common.exceptions import InvalidFileExtensionError
+from pyeio.base.exceptions import IncorrectFileExtensionError
 
 
 def open(
     path: FilePath,
     validate_extension: bool = True,
-) -> TOML:
+) -> PyTOML:
     """
     This function opens a file and reads its content as a TOML object.
     It supports both string paths (to files) and `pathlib.Path` objects.

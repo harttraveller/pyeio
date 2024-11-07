@@ -1,5 +1,7 @@
 from typing import Optional
-from pyeio.common.data import file_extensions
+from pathlib import Path
+from urllib.parse import urlparse
+from pyeio.base.types import FilePath
 from pyeio import __info__
 
 
@@ -19,17 +21,17 @@ class UnexpectedError(Exception):
         super().__init__(self.message)
 
 
-class InvalidFileExtensionError(Exception):
+class IncorrectFileExtensionError(Exception):
     """Raised when the provided extension does not match the expected extension(s)."""
 
     def __init__(
         self,
-        extension: str,
-        expected: str | set[str],
+        file_extension: str,
+        compatible_extensions: set[str],
     ) -> None:
-        self.extension = extension
-        self.expected = expected
-        self.message = f"Extension '{self.extension}' should be '{self.expected}'"
+        self.file_extension = file_extension
+        self.compatible_extensions = compatible_extensions
+        self.message = f"Extension '{self.file_extension}' should be in '{self.compatible_extensions}'"
         super().__init__(self.message)
 
 
@@ -39,7 +41,18 @@ class MissingExtraError(Exception):
         super().__init__(*args)
 
 
-class UnknownExtensionError(Exception):
+class MissingFileExtensionError(Exception):
+    """Raised when the file in question doesn't have an extension."""
+
+    def __init__(
+        self,
+        file: str,
+    ) -> None:
+        self.message = f"'{file}' does not have a file extension. You may be able to bypass this by passing 'False' to the parameter that validates file extensions."
+        super().__init__(self.message)
+
+
+class UnsupportedFileExtensionError(Exception):
     """Raised when the provided extension is not known/supported yet."""
 
     def __init__(
@@ -47,8 +60,5 @@ class UnknownExtensionError(Exception):
         extension: str,
     ) -> None:
         self.extension = extension
-        self.message = (
-            f"Unknown extension '{extension}'."
-            f"\nAvailable extensions are: '{file_extensions}'."
-        )
+        self.message = f"'{self.extension}' is not yet supported."
         super().__init__(self.message)
