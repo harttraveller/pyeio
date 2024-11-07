@@ -27,17 +27,17 @@ MimeType = Literal[
 
 FilePath = str | Path
 
+# DataLocation = Literal[
+#     "disk",
+#     "web",
+#     "memory",
+# ]
+
+
 # ! Python Data Types
 
 JSON_TYPE = TypeVar("JSON_TYPE", bound="PyJSON")
-PyJSON = Union[
-    bool,
-    int,
-    float,
-    str,
-    list[JSON_TYPE],
-    dict[str, JSON_TYPE],
-]
+PyJSON = bool | int | float | str | list[JSON_TYPE] | dict[str, JSON_TYPE]
 SerializedJSON = str | bytes | bytearray
 
 TOML_TYPE = TypeVar("TOML_TYPE", bound="TOML_VALUE_TYPE")
@@ -55,10 +55,8 @@ TOML_VALUE_TYPE = (
 PyTOML = dict[str, TOML_VALUE_TYPE]
 SerializedTOML = str | bytes
 
-# ! ---
+YAML_TYPE = TypeVar("YAML_TYPE", bound="PyYAML")
+PyYAML = bool | int | float | str | list[YAML_TYPE] | dict[str, YAML_TYPE]
+SerializedYAML = str | bytes
 
-# DataLocation = Literal[
-#     "disk",
-#     "web",
-#     "memory",
-# ]
+# ! ---
