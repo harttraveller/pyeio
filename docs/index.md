@@ -34,6 +34,19 @@ Cover:
 - Meta format modules
 - Various available tools
 
+## Ontology
 
+- binary data
+    - text data
+        - unstructured text
+        - structured text
+            - data
+                - hierarchical
+                - array like
+            - code
+    - custom format
+    - mixed format
+        - PDF has text, also images, flate compressed data, etc
+    - archive format
 
  -->
