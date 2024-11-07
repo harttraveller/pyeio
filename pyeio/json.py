@@ -1,8 +1,8 @@
 import json
 from typing import TypeVar
 from pathlib import Path
-from pyeio.core import io
-from pyeio.core.exceptions import InvalidFileExtensionError
+from pyeio.base import io
+from pyeio.base.exceptions import InvalidFileExtensionError
 
 T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
