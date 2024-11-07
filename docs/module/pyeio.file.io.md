@@ -2,4 +2,4 @@
 title: io
 ---
 
-::: pyeio.core.io
+::: pyeio.file.io
