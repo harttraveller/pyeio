@@ -1,4 +1,4 @@
-from typing import Literal, get_args
+from typing import Literal, TypeVar
 
 FileExtension = Literal[
     "json",
@@ -28,3 +28,10 @@ MimeType = Literal[
     # "application/netcdf",
     # "application/x-netcdf",
 ]
+
+
+# DataLocation = Literal[
+#     "disk",
+#     "web",
+#     "memory",
+# ]

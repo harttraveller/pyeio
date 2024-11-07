@@ -1,5 +1,5 @@
 from typing import get_args
-from .types import FileExtension, VariantFileExtension
+from pyeio.core.types import FileExtension, VariantFileExtension
 
 file_extensions: tuple[str, ...] = get_args(FileExtension)
 
