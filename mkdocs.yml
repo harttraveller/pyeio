@@ -1,12 +1,15 @@
 site_name: pyeio
+site_url: https://harttraveller.github.io/pyeio
+repo_name: harttraveller/pyeio
+repo_url: https://github.com/harttraveller/pyeio
 
 plugins:
 - search
 
 theme:
   name: material
-  logo: assets/pyeio-small.png
-  favicon: assets/pyeio-small.png
+  logo: static/pyeio.png
+  favicon: static/pyeio.png
   palette:
     scheme: slate
     primary: black
@@ -26,7 +29,7 @@ extra:
   generator: false
 
 extra_css:
-- stylesheets/extra.css
+- static/extra.css
 
 markdown_extensions:
 - md_in_html
@@ -46,5 +49,3 @@ markdown_extensions:
 
 nav:
 - About: "index.md"
-- Examples: "examples.md"
-- Formats: "formats.md"

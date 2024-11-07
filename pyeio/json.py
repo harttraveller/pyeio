@@ -10,6 +10,7 @@ JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
 def open(path: str | Path) -> JSON:
+    """ """
     return json.loads(io.open_text(path=Path(path)))
 
 
