@@ -5,3 +5,8 @@ from pyeio.base.exceptions import (
     UnsupportedFileExtensionError,
     IncorrectFileExtensionError,
 )
+
+
+def test_parse_types():
+    with raises(TypeError):
+        _ = json.parse(data={"asdf", "1234"})  # type: ignore
