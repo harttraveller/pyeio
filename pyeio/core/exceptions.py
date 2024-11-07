@@ -1,6 +1,6 @@
 from typing import Optional
 from pyeio.core.index import file_extensions
-from pyeio.__meta__ import __package__
+from pyeio import __meta__
 
 
 class UnexpectedError(Exception):
@@ -8,11 +8,14 @@ class UnexpectedError(Exception):
 
     def __init__(
         self,
-        message: Optional[str] = None,
+        details: Optional[str] = None,
+        issues: bool = True,
     ) -> None:
-        self.message = "This was unexpected! Please submit a GitHub issue with the code that generated this error."
-        if message:
-            self.message += f"\n{message}"
+        self.message = "This was unexpected!"
+        if details:
+            self.message += f"\nDetails: {details}"
+        if issues:
+            self.message += f"\nPlease submit a GitHub issue with the code that generated this error at:\n{__meta__.__issues__}"
         super().__init__(self.message)
 
 
@@ -32,7 +35,7 @@ class InvalidFileExtensionError(Exception):
 
 class MissingExtraError(Exception):
     def __init__(self, extra: str, *args: object) -> None:
-        self.message = f"To use this module install: '{__package__}[{extra}]'"
+        self.message = f"To use this module install: '{__meta__.__package__}[{extra}]'"
         super().__init__(*args)
 
 

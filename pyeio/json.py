@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from typing import TypeVar, Generator, Optional
 
-from pyeio.base import io
+from pyeio.core import io
 from pyeio.core.exceptions import InvalidFileExtensionError
 
 T = TypeVar("T", bound="JSON")
