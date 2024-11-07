@@ -1,8 +1,10 @@
 from pathlib import Path
+from pyeio.base.types import FilePath
 
 
-def open_text(path: str | Path) -> str:
+def open_text(path: FilePath) -> str:
     with open(path) as file:
+        # * file.read already covers non-existing file error
         data = file.read()
     file.close()
     return data
