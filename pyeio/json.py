@@ -1,21 +1,16 @@
+import json
 from pathlib import Path
 from typing import TypeVar, Generator, Optional
 
 from pyeio import txt
 from pyeio.core.exceptions import InvalidFileExtensionError, MissingExtraError
 
-try:
-    import orjson
-except ImportError:
-    raise MissingExtraError("json")
-
-
 T = TypeVar("T", bound="JSON")
 JSON = bool | int | float | str | list[T] | dict[str, T]
 
 
 def load(path: str | Path) -> JSON:
-    return orjson.loads(txt.load(path=Path(path)))
+    return json.loads(txt.load(path=Path(path)))
 
 
 def save(data: JSON, path: str | Path, overwrite: bool = False) -> None:
@@ -23,7 +18,7 @@ def save(data: JSON, path: str | Path, overwrite: bool = False) -> None:
     file_extension = path.name.split(".")[-1]
     if file_extension.lower() != "json":
         raise InvalidFileExtensionError(extension=file_extension, expected="json")
-    txt.save(data=orjson.dumps(data).decode(), path=path, overwrite=overwrite)
+    txt.save(data=json.dumps(data), path=path, overwrite=overwrite)
 
 
 def get(url: str) -> JSON:

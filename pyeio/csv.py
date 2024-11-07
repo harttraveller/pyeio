@@ -1,13 +1,15 @@
+import pandas as pd
 from pathlib import Path
 
 
-def load(): ...
+def load(path: str | Path) -> pd.DataFrame:
+    return pd.read_csv(path)
 
 
-def save(): ...
+def save(data: pd.DataFrame, path: str | Path, overwrite: bool = False): ...
 
 
-def get(): ...
+def get(url: str) -> pd.DataFrame: ...
 
 
 # ! ---
