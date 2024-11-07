@@ -2,4 +2,4 @@
 title: toml
 ---
 
-# `pyeio.toml`
+::: pyeio.toml

@@ -2,4 +2,4 @@
 title: yaml
 ---
 
-# `pyeio.yaml`
+::: pyeio.yaml
