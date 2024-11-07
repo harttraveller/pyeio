@@ -1,8 +1,13 @@
-import toml
 from pathlib import Path
 from pyeio.base.types import FilePath, PyTOML, SerializedTOML
+from pyeio.base.exceptions import MissingExtraError
 from pyeio.core import io, web
 from pyeio.base import utils
+
+try:
+    import toml
+except ImportError:
+    raise MissingExtraError(extra="toml")
 
 
 def parse(data: SerializedTOML) -> PyTOML:
