@@ -1,5 +1,4 @@
 import json
-from typing import Optional
 from pathlib import Path
 from pyeio.base.types import FilePath, PyJSON, SerializedJSON
 from pyeio.core import io, web
@@ -182,7 +181,7 @@ def download(
     validate_file_extension: bool = True,
     chunk_size: int = 1 << 10,
     follow_redirects: bool = True,
-    evaluate_size: Optional[bool] = None,
+    evaluate_size: bool | None = None,
     show_progress: bool = False,
     show_file_name: bool = True,
 ) -> None:
