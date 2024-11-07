@@ -1,8 +1,8 @@
 import toml
 from pathlib import Path
-from pyeio.base.types import FilePath, TOML
+from pyeio.common.types import FilePath, TOML
 from pyeio.core import io
-from pyeio.base.exceptions import InvalidFileExtensionError
+from pyeio.common.exceptions import InvalidFileExtensionError
 
 
 def open(
