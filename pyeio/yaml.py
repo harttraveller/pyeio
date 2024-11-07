@@ -1,3 +1,9 @@
+def parse(): ...
+
+
+def serialize(): ...
+
+
 def open(): ...
 
 

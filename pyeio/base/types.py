@@ -40,18 +40,20 @@ PyJSON = Union[
 ]
 SerializedJSON = str | bytes | bytearray
 
-TOML_TYPE = TypeVar("TOML_TYPE", bound="PyTOML")
-PyTOML = Union[
-    bool,
-    int,
-    float,
-    str,
-    datetime,
-    date,
-    time,
-    list[TOML_TYPE],
-    dict[str, TOML_TYPE],
-]
+TOML_TYPE = TypeVar("TOML_TYPE", bound="TOML_VALUE_TYPE")
+TOML_VALUE_TYPE = (
+    bool
+    | int
+    | float
+    | str
+    | datetime
+    | date
+    | time
+    | list[TOML_TYPE]
+    | dict[str, TOML_TYPE]
+)
+PyTOML = dict[str, TOML_VALUE_TYPE]
+SerializedTOML = str | bytes
 
 # ! ---
 
