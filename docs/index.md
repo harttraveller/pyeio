@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: Quick Start
 hide:
 - navigation
 ---
@@ -20,8 +20,11 @@ hide:
 ## Installation
 
 
+## Usage
 
-## Extra Features
+<!-- 
+## Design
 
+If you plan on using this library, you should familiarize yourself with it's architecture. It is explicitly built to be as standardized, interoperable, and internally symmetrical as possible.
 
-## Supported Formats
+ -->
