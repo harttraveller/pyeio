@@ -1,4 +1,13 @@
-# Formats
+---
+title: File Formats
+hide:
+- navigation
+---
+
+
+
+
+<!-- 
 
 - JSON
 - TOML
@@ -13,8 +22,6 @@
 - XLSB
 - JPEG
 - PNG
-
-<!-- 
 
 ## Base Module Complete
 
