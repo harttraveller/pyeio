@@ -49,3 +49,4 @@
 - optional integration of web module with proxy service?
 - fake user agent generation
 - web crawling/evaluation with llm?
+- create hierarchy of format sets - svg can be loaded by xml parser, md by txt, but pdf not by json, etc

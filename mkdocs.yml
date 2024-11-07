@@ -64,6 +64,10 @@ nav:
 - Tutorial Notebooks:
   - notebook/index.md
   - notebook/json.ipynb
+  - notebook/toml.ipynb
+  - notebook/yaml.ipynb
+  - notebook/jsonl.ipynb
+  - notebook/zst.ipynb
 - Module Reference:
   - module/index.md
   - module/pyeio.json.md
@@ -74,5 +78,5 @@ nav:
     - module/pyeio.core.web.md
   # - meta:
   # - tool:
-- Developer Notes:
-  - developer/index.md
+# - Developer Notes:
+#   - developer/index.md
