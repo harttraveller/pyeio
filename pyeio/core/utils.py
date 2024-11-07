@@ -1,14 +1,14 @@
 from pathlib import Path
 from typing import cast
 from urllib.parse import urlparse
-from pyeio.base import index
-from pyeio.base.types import (
+from pyeio.common import index
+from pyeio.common.types import (
     FilePath,
     FileFormatModule,
     FileExtension,
     StandardFileExtension,
 )
-from pyeio.base.exceptions import (
+from pyeio.common.exceptions import (
     UnsupportedFileExtensionError,
     IncorrectFileExtensionError,
     MissingFileExtensionError,

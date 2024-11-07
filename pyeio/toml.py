@@ -1,6 +1,6 @@
 from pathlib import Path
-from pyeio.base.types import FilePath, PyTOML, SerializedTOML
-from pyeio.base.exceptions import MissingExtraError
+from pyeio.common.types import FilePath, PyTOML, SerializedTOML
+from pyeio.common.exceptions import MissingExtraError
 from pyeio.core import io, web, utils
 
 try:

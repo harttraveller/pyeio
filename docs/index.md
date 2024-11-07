@@ -20,11 +20,16 @@ hide:
 ## Installation
 
 
+
 ## Usage
 
 <!-- 
 ## Design
 
 If you plan on using this library, you should familiarize yourself with it's architecture. It is explicitly built to be as standardized, interoperable, and internally symmetrical as possible.
+
+Cover:
+
+- Base format modules, available functions, file format ontology and how categories in ontology are 1:1 mapped with functions in format modules
 
  -->
