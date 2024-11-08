@@ -84,14 +84,3 @@ def run_file_extension_validation(
 #     return extension.lower() in allowed
 
 # def raise_invalid_file_extension(extension: str, allowed: set[str]) -> None:
-
-
-# todo
-def rename_file():
-    # todo: rename file on disk
-    ...
-
-
-def get_file_metadata():
-    # todo: get builtin file metadata
-    ...

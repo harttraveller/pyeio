@@ -1,14 +1,19 @@
+import importlib
 from pathlib import Path
 from typing import Any, Literal
-from pyeio.internal.types import FileFormat
+from pyeio.common.types import FileFormat
 
 # todo.fix: figure out how to do proper type hints
 # todo: need to add format identification and dynamic module loading based on format to avoid taking a massive amount of time to import
+# todo: should
 
 
 def parse(
     data: str | bytes, format: FileFormat | Literal["detect"] = "detect"
 ) -> Any: ...
+
+
+def serialize(data, format: FileFormat = "json") -> str: ...
 
 
 def open(path: str | Path) -> Any: ...
@@ -21,6 +26,12 @@ def load(): ...
 
 
 def download(): ...
+
+
+def decompress(): ...
+
+
+def compress(): ...
 
 
 # todo.feature:

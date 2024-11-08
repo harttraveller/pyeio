@@ -1,7 +1,8 @@
 import json
 from pathlib import Path
-from pyeio.internal.types import FilePath, PyJSON, SerializedJSON
-from pyeio.file import io, web, utils
+from pyeio.common.types import FilePath, PyJSON, SerializedJSON
+from pyeio.file import utils
+from pyeio.io import web, loc
 
 
 def parse(data: SerializedJSON) -> PyJSON:
@@ -77,7 +78,7 @@ def open(
             module_name="json",
             path=path,
         )
-    serialized_json: str = io.open_text(path=path)
+    serialized_json: str = loc.open_text(path=path)
     json_data = parse(serialized_json)
     return json_data
 
@@ -125,7 +126,7 @@ def save(
         sort_keys=sort_keys,
         compact_serialization=compact_serialization,
     )
-    io.save_text(data=serialized_json, path=path, overwrite=overwrite)
+    loc.save_text(data=serialized_json, path=path, overwrite=overwrite)
 
 
 def load(
