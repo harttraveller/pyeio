@@ -68,6 +68,7 @@
 - estimate/calc num lines
 - estimate/calc num blocks
 - estimate/calc num chars
+- add ability to get hash of in memory object to `File` for use in both memory cache, and disk cache
 
 
 ### Maybe?
