@@ -12,7 +12,6 @@
 <img src="https://img.shields.io/badge/license-MIT-blue" height=20>
 </a>
 </div>
-
 <br>
 
 Short for `Py`thon `E`asy `I`nput `O`utput, `pyeio` is a python library meant to simplify file IO processes.
@@ -36,3 +35,12 @@ po.load("path or url")
 
 po.save(data, "path")
 ```
+
+
+## Developer
+
+
+## Links
+
+- https://pyo3.rs
+- https://www.maturin.rs

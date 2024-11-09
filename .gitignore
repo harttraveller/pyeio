@@ -2,6 +2,7 @@
 local
 temp
 dev.ipynb
+publish.sh
 
 # Poetry
 poetry.lock

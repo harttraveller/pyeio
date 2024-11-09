@@ -6,7 +6,7 @@ fn sum_as_string(a: usize, b: usize) -> PyResult<String> {
 }
 
 #[pymodule]
-#[pyo3(name = "rsutils")]
+#[pyo3(name = "rs")]
 fn pyeio(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(sum_as_string, m)?)
 }

@@ -3,12 +3,10 @@ requires = ["maturin>=1,<2"]
 build-backend = "maturin"
 
 [tool.maturin]
-module-name = "pyeio.rsutils"
+module-name = "pyeio.bin.rs"
 features = ["pyo3/extension-module"]
 manifest-path = "Cargo.toml"
 bindings = "pyo3"
-# python-source = "python"
-
 
 [tool.poetry]
 name = "pyeio"
@@ -20,7 +18,6 @@ documentation = "https://harttraveller.github.io/pyeio"
 authors = ["Hart Traveller <ruling_fiction.0b@icloud.com>"]
 maintainers = ["Hart Traveller <ruling_fiction.0b@icloud.com>"]
 license = "MIT"
-# packages = [{ include = "pyeio", from = "python" }]
 
 [tool.poetry.dependencies]
 python = ">=3.10, <3.13"
@@ -95,11 +92,8 @@ mkdocs-roamlinks-plugin = "^0.3.2"
 # requires = ["poetry-core>=1.0.0"]
 # build-backend = "poetry.core.masonry.api"
 
-
-# [tool.poetry.build]
-# generate-setup-file = true
-# script = "build.py"
-
+[tool.poetry.scripts]
+io = "pyeio.cli:app"
 
 # [[tool.poetry.source]]
 # name = "PyPI"
