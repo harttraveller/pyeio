@@ -1,3 +1,5 @@
+# This file is unrelated to PyPy - it's just for profiling differences in speed of same underlying functionality.
+
 from pydantic import PositiveInt
 from pyeio.core.types import FilePath
 
