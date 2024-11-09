@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "maturin.develop.release",
+            "type": "shell",
+            "command": "maturin",
+            "args": [
+                "develop",
+                "--release"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
