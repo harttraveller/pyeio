@@ -4,6 +4,7 @@ from pathlib import Path
 from pyeio.core.types import FilePath
 from . import py
 
+# todo: add automatic fallback to py functions if rust is unavailable
 try:
     from . import rs
 except ImportError:
