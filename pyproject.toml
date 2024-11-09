@@ -61,6 +61,7 @@ optional = true
 ipykernel = "^6.29.5"
 result = "^0.17.0"
 rich = "^13.9.4"
+maturin = "^1.7.4"
 
 [tool.poetry.group.test]
 optional = true
