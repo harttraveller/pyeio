@@ -9,7 +9,7 @@ features = ["pyo3/extension-module"]
 
 [project]
 name = "pyeio"
-version = "0.1.6"
+version = "0.1.7"
 description = "Python package for easy data input output handling."
 readme = "README.md"
 license = { file = "LICENSE" }
