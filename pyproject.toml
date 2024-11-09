@@ -3,7 +3,7 @@ requires = ["maturin>=1,<2"]
 build-backend = "maturin"
 
 [tool.maturin]
-module-name = "pyeio.bin.rs"
+module-name = "pyeio.opt.rs"
 features = ["pyo3/extension-module"]
 manifest-path = "Cargo.toml"
 bindings = "pyo3"
