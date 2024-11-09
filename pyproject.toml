@@ -1,3 +1,15 @@
+[build-system]
+requires = ["maturin>=1,<2"]
+build-backend = "maturin"
+
+[tool.maturin]
+module-name = "pyeio.rsutils"
+features = ["pyo3/extension-module"]
+manifest-path = "./Cargo.toml"
+bindings = "pyo3"
+# python-source = "python"
+
+
 [tool.poetry]
 name = "pyeio"
 version = "0.1.2"
@@ -8,6 +20,7 @@ documentation = "https://harttraveller.github.io/pyeio"
 authors = ["Hart Traveller <ruling_fiction.0b@icloud.com>"]
 maintainers = ["Hart Traveller <ruling_fiction.0b@icloud.com>"]
 license = "MIT"
+# packages = [{ include = "pyeio", from = "python" }]
 
 [tool.poetry.dependencies]
 python = ">=3.10, <3.13"
@@ -78,10 +91,16 @@ mkdocstrings = { extras = ["python"], version = "^0.26.2" }
 mkdocs-jupyter = "^0.25.1"
 mkdocs-roamlinks-plugin = "^0.3.2"
 
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+# [build-system]
+# requires = ["poetry-core>=1.0.0"]
+# build-backend = "poetry.core.masonry.api"
 
-[[tool.poetry.source]]
-name = "PyPI"
-priority = "primary"
+
+# [tool.poetry.build]
+# generate-setup-file = true
+# script = "build.py"
+
+
+# [[tool.poetry.source]]
+# name = "PyPI"
+# priority = "primary"
