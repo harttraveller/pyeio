@@ -2,21 +2,9 @@
 # eg: CSV class, with append, prepend methods, type validation for data, automatically prepends after first column if column defined, etc
 
 
-import pandas as pd
+# import pandas as pd
 from pathlib import Path
-
-
-def open(path: str | Path) -> pd.DataFrame:
-    return pd.read_csv(path)
-
-
-def save(data: pd.DataFrame, path: str | Path, overwrite: bool = False): ...
-
-
-def get(url: str) -> pd.DataFrame: ...
-
-
-# ! ---
+from pyeio.core.schemas import BaseFile
 
 
 class Streamer:
@@ -35,3 +23,19 @@ class Reader:
     def read_rows(self): ...
 
     def read_column_names(self): ...
+
+
+class CSV(BaseFile): ...
+
+
+# def open(path: str | Path) -> pd.DataFrame:
+#     return pd.read_csv(path)
+
+
+# def save(data: pd.DataFrame, path: str | Path, overwrite: bool = False): ...
+
+
+# def get(url: str) -> pd.DataFrame: ...
+
+
+# ! ---

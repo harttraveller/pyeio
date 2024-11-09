@@ -1,7 +1,21 @@
+from __future__ import annotations
+
 import importlib
 from pathlib import Path
 from typing import Any, Literal
+
+from pydantic import FilePath
 from pyeio.core.types import FileFormat
+from pyeio.core.schemas import BaseFile
+
+
+class File(BaseFile):
+    @staticmethod
+    def from_url(url: str) -> File: ...
+
+    @staticmethod
+    def from_path(path: FilePath) -> File: ...
+
 
 # todo.fix: figure out how to do proper type hints
 # todo: need to add format identification and dynamic module loading based on format to avoid taking a massive amount of time to import
