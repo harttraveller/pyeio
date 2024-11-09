@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from pyeio.common.types import FilePath, PyJSON, SerializedJSON
+from pyeio.core.types import FilePath, PyJSON, SerializedJSON
 from pyeio.file import utils
 from pyeio.io import web, loc
 

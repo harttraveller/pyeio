@@ -1,5 +1,5 @@
 from typing import Generator
-from pyeio.common.types import FilePath
+from pyeio.core.types import FilePath
 
 
 class ChunkReader:

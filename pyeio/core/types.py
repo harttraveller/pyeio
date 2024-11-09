@@ -1,6 +1,7 @@
+import annotated_types
 from pathlib import Path
 from datetime import datetime, date, time
-from typing import Literal, TypeVar
+from typing import Literal, TypeVar, Annotated
 
 
 FileType = Literal[
@@ -67,5 +68,3 @@ SerializedTOML = str | bytes
 YAML_TYPE = TypeVar("YAML_TYPE", bound="PyYAML")
 PyYAML = bool | int | float | str | list[YAML_TYPE] | dict[str, YAML_TYPE]
 SerializedYAML = str | bytes
-
-# ! ---

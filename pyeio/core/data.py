@@ -1,5 +1,5 @@
 from typing import get_args
-from pyeio.common.types import (
+from pyeio.core.types import (
     StandardFileExtension,
     VariantFileExtension,
     FileExtension,

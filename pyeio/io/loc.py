@@ -1,7 +1,7 @@
 import re
 from pathlib import Path
 from typing import Pattern
-from pyeio.common.types import FilePath
+from pyeio.core.types import FilePath
 
 
 def open_text(path: FilePath) -> str:

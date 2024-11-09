@@ -5,7 +5,7 @@ use rayon::ThreadPoolBuilder;
 use std::fs::File;
 use std::io;
 
-fn count_lines_simd(filename: &str, chunk_size: usize, num_threads: usize) -> io::Result<usize> {
+pub fn call(filename: &str, chunk_size: usize, num_threads: usize) -> io::Result<usize> {
     // Open the file.
     let file = File::open(filename)?;
 
@@ -28,11 +28,7 @@ fn count_lines_simd(filename: &str, chunk_size: usize, num_threads: usize) -> io
     Ok(lines)
 }
 
-pub fn call(
-    filename: &str,
-    chunk_size: usize,
-    num_threads: usize,
-) -> Result<usize, std::io::Error> {
-    let count = count_lines_simd(filename, chunk_size, num_threads)?;
-    Ok(count)
-}
+// pub fn call(path: &str, chunk_size: usize, num_threads: usize) -> Result<usize, std::io::Error> {
+//     let count = count_lines_simd(path, chunk_size, num_threads)?;
+//     Ok(count)
+// }
