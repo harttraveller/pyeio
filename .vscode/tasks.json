@@ -10,6 +10,22 @@
                 "--release"
             ],
             "problemMatcher": []
-        }
+        },
+        {
+            "label": "maturin.build.release",
+            "type": "shell",
+            "command": "maturin",
+            "args": [
+                "build",
+                "--release"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "maturin.publish",
+            "type": "shell",
+            "command": "./publish.sh",
+            "problemMatcher": []
+        },
     ]
 }
