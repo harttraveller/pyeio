@@ -23,15 +23,11 @@ For instance, to count the number of lines in a 15 GB `items.jsonl` file one cou
 wc -l items.jsonl
 ```
 
-Which takes 12.03s to run (on my machine). Alternatively:
-
 ```sh
 eio wc -l items.jsonl
 ```
 
-Which runs in 1.14s.
-
-I suspect things will be very unstable for another few months.
+Runs anywhere from 10 to 20x faster. I suspect things will be very unstable for another few months.
 
 <!-- ## Installation
 
