@@ -27,8 +27,3 @@ pub fn call(filename: &str, chunk_size: usize, num_threads: usize) -> io::Result
 
     Ok(lines)
 }
-
-// pub fn call(path: &str, chunk_size: usize, num_threads: usize) -> Result<usize, std::io::Error> {
-//     let count = count_lines_simd(path, chunk_size, num_threads)?;
-//     Ok(count)
-// }
