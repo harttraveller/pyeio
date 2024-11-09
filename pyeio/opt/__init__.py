@@ -2,6 +2,7 @@ import psutil
 from pydantic import PositiveInt
 from pathlib import Path
 from pyeio.core.types import FilePath
+from . import py
 
 try:
     from . import rs
