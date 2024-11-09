@@ -3,11 +3,6 @@ use pyo3::wrap_pyfunction;
 mod _count_lines_in_file;
 
 #[pyfunction]
-fn test_function(a: usize, b: usize) -> PyResult<String> {
-    Ok((a + b).to_string())
-}
-
-#[pyfunction]
 fn count_lines_in_file(
     py: Python<'_>,
     path: String,
@@ -24,7 +19,6 @@ fn count_lines_in_file(
 #[pymodule]
 #[pyo3(name = "rs")]
 fn pyeio(m: &Bound<'_, PyModule>) -> PyResult<()> {
-    m.add_function(wrap_pyfunction!(test_function, m)?)?;
     m.add_function(wrap_pyfunction!(count_lines_in_file, m)?)?;
     Ok(())
 }
