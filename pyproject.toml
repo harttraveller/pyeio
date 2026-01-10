@@ -1,7 +1,7 @@
 [project]
 name = "pyeio"
 version = "0.2.0"
-description = "Utilities typically used across projects and extensions of the python standard library."
+description = "Easy data input/output utilities."
 readme = "README.md"
 license = "MIT"
 authors = [{ name = "Hart Traveller", email = "ruling_fiction.0b@icloud.com" }]
