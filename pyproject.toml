@@ -1,3 +1,7 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "pyeio"
 version = "0.2.0"
@@ -11,10 +15,8 @@ dependencies = []
 
 [project.optional-dependencies]
 pydantic = ["pydantic>=2.12.5"]
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+json = ["orjson>=3.11.5"]
+yaml = ["pyyaml>=6.0.3"]
 
 [dependency-groups]
 dev = [
