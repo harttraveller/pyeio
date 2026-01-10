@@ -1,0 +1,28 @@
+[project]
+name = "pyeio"
+version = "0.2.0"
+description = "Utilities typically used across projects and extensions of the python standard library."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Hart Traveller", email = "ruling_fiction.0b@icloud.com" }]
+urls = { homepage = "https://pypi.org/project/pyeio", documentation = "https://harttraveller.github.io/pyeio", repository = "https://github.com/harttraveller/pyeio" }
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+docs = [
+    "mkdocs-jupyter>=0.25.1",
+    "mkdocs-material>=9.6.14",
+    "mkdocs-roamlinks-plugin>=0.3.2",
+    "mkdocstrings[python]>=0.29.1",
+]
+test = ["hypothesis>=6.131.17", "pytest>=8.3.5"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+]
