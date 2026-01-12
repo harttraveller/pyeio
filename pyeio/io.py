@@ -24,17 +24,66 @@ from io import (
     open_code,
     text_encoding,
 )
-from typing import overload, TypeAlias, TypeVar, Literal
+from typing import overload, TypeAlias, TypeVar, Literal, AnyStr
+from pathlib import Path
 
-StrOrBytes: TypeAlias = str | bytes
-T_StrOrBytes = TypeVar("T_StrOrBytes", bound=StrOrBytes)
+# StrOrBytes: TypeAlias = str | bytes
+# T_StrOrBytes = TypeVar("T_StrOrBytes", bound=StrOrBytes)
 
 
-def read_string() -> str: ...
-def read_binary() -> bytes: ...
-def write_string() -> str: ...
+def read_string(
+    file: str | Path,
+    encoding: str = "utf-8",
+) -> str: ...
+
+
+def write_string(
+    file: str,
+    overwrite: bool = False,
+    encoding: str = "utf-8",
+) -> str: ...
+
+
+def append_string(): ...
+
+
+def prepend_string(): ...
+
+
+def insert_string(): ...
+
+
+def read_binary(file: str | Path) -> bytes: ...
+
+
 def write_binary() -> bytes: ...
 
 
-def read(): ...
-def write(): ...
+def append_binary(): ...
+
+
+def prepend_binary(): ...
+
+
+def insert_binary(): ...
+
+
+def read(
+    file: str | Path,
+    returns: type[AnyStr] = str,
+    /,
+    *,
+    encoding: str = "utf-8",
+) -> AnyStr: ...
+
+
+def write(data: str | bytes, overwrite: bool = False, encoding: str = "utf-8"): ...
+
+
+def append(): ...
+
+
+def prepend(): ...
+
+
+def insert(): ...
