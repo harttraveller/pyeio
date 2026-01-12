@@ -17,14 +17,13 @@ dependencies = []
 pydantic = ["pydantic>=2.12.5"]
 json = ["orjson>=3.11.5"]
 yaml = ["pyyaml>=6.0.3"]
+zst = ["zstandard>=0.25.0"]
+xml = ["lxml>=6.0.2", "xmltodict>=1.0.2"]
 
 [dependency-groups]
 dev = [
     "ipykernel>=6.29.5",
-    "mkdocs-jupyter>=0.25.1",
     "mkdocs-material>=9.6.14",
-    "mkdocs-roamlinks-plugin>=0.3.2",
     "mkdocstrings[python]>=0.29.1",
-    "hypothesis>=6.131.17",
     "pytest>=8.3.5",
 ]

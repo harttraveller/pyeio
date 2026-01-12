@@ -1,9 +1,12 @@
 # ruff: noqa
 
+# utils
 from importlib import import_module
 from typing import TYPE_CHECKING
-from pyeio.io import (
-    open,
+
+# io
+from builtins import open
+from io import (
     DEFAULT_BUFFER_SIZE,
     SEEK_CUR,
     SEEK_END,
@@ -17,6 +20,7 @@ from pyeio.io import (
     BytesIO,
     FileIO,
     IncrementalNewlineDecoder,
+    IOBase,
     RawIOBase,
     StringIO,
     TextIOBase,
@@ -24,26 +28,31 @@ from pyeio.io import (
     UnsupportedOperation,
     open_code,
     text_encoding,
+)
+
+# io extras
+from pyeio.io import (
     read_string,
     write_string,
     append_string,
-    prepend_string,
     insert_string,
     read_binary,
     write_binary,
     append_binary,
-    prepend_binary,
     insert_binary,
     read,
     write,
+    append,
+    insert,
 )
 
 if TYPE_CHECKING:
-    from pyeio import csv
-    from pyeio import json
-    from pyeio import jsonl
-    from pyeio import toml
-    from pyeio import xml
-    from pyeio import yaml
-    from pyeio import zip
-    from pyeio import zst
+    # file formats
+    from pyeio.ff import csv
+    from pyeio.ff import json
+    from pyeio.ff import jsonl
+    from pyeio.ff import toml
+    from pyeio.ff import xml
+    from pyeio.ff import yaml
+    from pyeio.ff import zip
+    from pyeio.ff import zst
