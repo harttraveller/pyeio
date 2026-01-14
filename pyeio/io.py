@@ -33,12 +33,20 @@ from pathlib import Path
 
 def read_string(
     file: str | Path,
+    /,
+    *,
     encoding: str = "utf-8",
-) -> str: ...
+) -> str:
+    with open(file, "r") as f:
+        data = f.read()
+    f.close()
+    return data
 
 
 def write_string(
     file: str,
+    /,
+    *,
     overwrite: bool = False,
     encoding: str = "utf-8",
 ) -> str: ...
@@ -53,7 +61,12 @@ def insert_string(file: str | Path, data: str, loc: int = 0): ...
 def read_binary(file: str | Path) -> bytes: ...
 
 
-def write_binary() -> bytes: ...
+def write_binary(
+    file: str | Path,
+    data: bytes,
+    overwrite: bool = False,
+) -> None:
+    mode = "wb" if overwrite else "xb"
 
 
 def append_binary(): ...
