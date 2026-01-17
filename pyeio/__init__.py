@@ -32,14 +32,6 @@ from io import (
 
 # io extras
 from pyeio.io import (
-    read_string,
-    write_string,
-    append_string,
-    insert_string,
-    read_binary,
-    write_binary,
-    append_binary,
-    insert_binary,
     read,
     write,
     append,
@@ -48,11 +40,4 @@ from pyeio.io import (
 
 if TYPE_CHECKING:
     # file formats
-    from pyeio.ff import csv
-    from pyeio.ff import json
-    from pyeio.ff import jsonl
-    from pyeio.ff import toml
-    from pyeio.ff import xml
-    from pyeio.ff import yaml
-    from pyeio.ff import zip
-    from pyeio.ff import zst
+    from pyeio import json
