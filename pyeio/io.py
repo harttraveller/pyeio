@@ -2,7 +2,7 @@
 
 from builtins import open
 from pathlib import Path
-from typing import AnyStr, Callable
+from typing import AnyStr, Callable, overload
 
 from io import (
     DEFAULT_BUFFER_SIZE,
@@ -20,14 +20,9 @@ from io import (
     text_encoding,
 )
 
-# FileDescriptor: TypeAlias = int
-# StrOrBytes: TypeAlias = str | bytes
-# StrOrBytesOrPath: TypeAlias = StrOrBytes | Path
-# FileIn: TypeAlias = FileDescriptor | StrOrBytesOrPath
-
 
 def read_string(
-    file: int | bytes | str | Path,
+    file: str | Path,
     /,
     *,
     encoding: str = "utf-8",
@@ -35,8 +30,7 @@ def read_string(
 ) -> str:
     """
     Args:
-        file (int | bytes | str | Path):
-            The file path or descriptor.
+        file (str | Path): The file path.
         encoding (str):
             The encoding to use. Defaults to "utf-8".
         size (int | None):
@@ -66,15 +60,14 @@ def read_string(
 
 
 def read_binary(
-    file: int | bytes | str | Path,
+    file: str | Path,
     /,
     *,
     size: int | None = None,
 ) -> bytes:
     """
     Args:
-        file (int | bytes | str | Path):
-            The file path or descriptor.
+        file (str | Path): The file path.
         size (int | None):
             The number of bytes to read.
             If None or negative, will read to EOF.
@@ -105,41 +98,48 @@ reader_function: dict[type, Callable] = {
 
 
 def read(
-    file: int | bytes | str | Path,
+    file: str | Path,
     returns: type[AnyStr] = str,
     /,
 ) -> AnyStr:
     """
+    Read file content. If str, assumes "utf-8" encoding.
+
     Args:
-        file (int | bytes | str | Path):
-            The file path or descriptor.
-        returns (type[AnyStr]):
-            The type to return.
+        file (str | Path): The file path.
+        returns (type[AnyStr]): The type to return.
 
     Returns:
         AnyStr: The data as [str][] or [bytes][].
-
-    Note that if a string is read, then by default,
-    the encoding will be assumed "utf-8". For more
-    control over the encoding use [read_string][].
     """
     return reader_function[returns](file)
 
 
 def write_string(
-    file: int | bytes | str | Path,
-    /,
+    file: str | Path,
     data: str,
+    /,
     *,
     overwrite: bool = False,
     encoding: str = "utf-8",
-) -> str: ...
+) -> None:
+    with open(
+        file=file,
+        mode="w" if overwrite else "x",
+        encoding=encoding,
+        errors=None,
+        newline=None,
+        closefd=True,
+        opener=None,
+    ) as f:
+        f.write(data)
+    f.close()
 
 
 def write_binary(
-    file: int | bytes | str | Path,
+    file: str | Path,
+    data: bytes,
     /,
-    data: bytes,  # TODO: add memoryview?
     *,
     overwrite: bool = False,
 ) -> None:
@@ -161,47 +161,39 @@ writer_function: dict[type, Callable] = {
 
 
 def write(
-    file: int | bytes | str | Path,
+    file: str | Path,
     data: str | bytes,
+    *,
     overwrite: bool = False,
-    encoding: str = "utf-8",
-): ...
+) -> None:
+    writer_function[type(data)](file, data, overwrite=overwrite)
 
 
-def append_string(
-    file: int | bytes | str | Path,
-    data: str,
-): ...
+def append_string(): ...
 
 
-def insert_string(
-    file: int | bytes | str | Path,
-    data: str,
-    loc: int = 0,
-): ...
+def append_binary(): ...
 
 
-def append_binary(
-    file: int | bytes | str | Path,
-): ...
+appender_function: dict[type, Callable] = {
+    str: append_string,
+    bytes: append_binary,
+}
 
 
-def insert_binary(
-    file: int | bytes | str | Path,
-): ...
+def append(): ...
 
 
-def append(
-    file: int | bytes | str | Path,
-): ...
+def insert_string(): ...
 
 
-def insert(
-    file: int | bytes | str | Path,
-): ...
+def insert_binary(): ...
 
 
-class ChunkReader: ...
+inserter_function: dict[type, Callable] = {
+    str: insert_string,
+    bytes: insert_binary,
+}
 
 
-class LineReader: ...
+def insert(): ...
