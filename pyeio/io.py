@@ -1,24 +1,6 @@
-# ruff: noqa
-
 from builtins import open
 from pathlib import Path
-from typing import AnyStr, Callable, overload
-
-from io import (
-    DEFAULT_BUFFER_SIZE,
-    BufferedRandom,
-    open_code,
-    FileIO,
-    BytesIO,
-    BufferedReader,
-    BufferedWriter,
-    BufferedRandom,
-    BufferedRWPair,
-    TextIOWrapper,
-    StringIO,
-    IncrementalNewlineDecoder,
-    text_encoding,
-)
+from typing import AnyStr, Callable
 
 
 def read_string(

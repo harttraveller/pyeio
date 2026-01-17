@@ -25,7 +25,6 @@ from io import (
 )
 from typing import TYPE_CHECKING
 
-# io extras
 from pyeio.io import (
     append,
     read,
@@ -33,7 +32,11 @@ from pyeio.io import (
 )
 
 if TYPE_CHECKING:
-    from pyeio import json, toml, yaml
+    from pyeio import (
+        json,
+        toml,
+        yaml,
+    )
 
 __all__ = [
     # passthrough
