@@ -3,6 +3,9 @@
 
 import orjson
 from functools import lru_cache
+from json import detect_encoding, dump, dumps, load, loads
+from pathlib import Path
+from orjson import JSONDecodeError, JSONEncodeError
 
 
 @lru_cache(maxsize=8)

@@ -32,6 +32,14 @@ from io import (
 
 # io extras
 from pyeio.io import (
+    read_string,
+    read_binary,
+    write_string,
+    write_binary,
+    append_string,
+    append_binary,
+    insert_string,
+    insert_binary,
     read,
     write,
     append,
