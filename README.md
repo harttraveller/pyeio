@@ -1,4 +1,4 @@
-# pyeio
+# pyeio | [pypi](https://pypi.org/project/pyeio/)
 
 - Description: Drop-in replacement for standard `io` module with some extra utilities.
 - Purpose: Solves having to constantly `with open` stuff.
