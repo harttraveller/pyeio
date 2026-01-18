@@ -1,0 +1,62 @@
+# Application Configuration
+app:
+  name: "MyApplication"
+  version: "1.2.3"
+  debug: true
+
+# Database settings
+database:
+  host: localhost
+  port: 5432
+  name: myapp_db
+  credentials:
+    username: admin
+    password: secret123
+
+# List of users
+users:
+  - id: 1
+    name: Alice Johnson
+    email: alice@example.com
+    roles:
+      - admin
+      - editor
+    active: true
+
+  - id: 2
+    name: Bob Smith
+    email: bob@example.com
+    roles:
+      - viewer
+    active: false
+
+# Feature flags
+features:
+  dark_mode: true
+  beta_features: false
+  max_upload_size: 10485760  # 10MB in bytes
+
+# Multi-line string example
+welcome_message: |
+  Welcome to MyApplication!
+  We're glad to have you here.
+  Enjoy your stay.
+
+# Inline list and object
+tags: [web, api, backend]
+metadata: { created: 2024-01-15, author: dev_team }
+
+# Null and anchors/aliases
+optional_field: null
+
+defaults: &defaults
+  timeout: 30
+  retries: 3
+
+production:
+  <<: *defaults
+  timeout: 60
+
+development:
+  <<: *defaults
+  debug: true

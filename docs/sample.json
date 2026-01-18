@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "MyApplication",
+    "version": "1.2.3",
+    "debug": true
+  },
+
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "name": "myapp_db",
+    "credentials": {
+      "username": "admin",
+      "password": "secret123"
+    }
+  },
+
+  "users": [
+    {
+      "id": 1,
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "roles": ["admin", "editor"],
+      "active": true,
+      "profile": {
+        "avatar": "https://example.com/avatars/alice.png",
+        "bio": "Software engineer and coffee enthusiast.",
+        "social": {
+          "twitter": "@alice_dev",
+          "github": "alicej"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "name": "Bob Smith",
+      "email": "bob@example.com",
+      "roles": ["viewer"],
+      "active": false,
+      "profile": null
+    }
+  ],
+
+  "features": {
+    "dark_mode": true,
+    "beta_features": false,
+    "max_upload_size": 10485760
+  },
+
+  "tags": ["web", "api", "backend"],
+
+  "metadata": {
+    "created": "2024-01-15T10:30:00Z",
+    "author": "dev_team",
+    "revision": 42
+  },
+
+  "pricing": [
+    { "plan": "free", "price": 0, "features": ["basic"] },
+    { "plan": "pro", "price": 9.99, "features": ["basic", "advanced", "support"] },
+    { "plan": "enterprise", "price": 49.99, "features": ["basic", "advanced", "support", "sla"] }
+  ],
+
+  "settings": {
+    "notifications": {
+      "email": true,
+      "sms": false,
+      "push": true
+    },
+    "theme": "auto",
+    "language": "en-US",
+    "timezone": "America/New_York"
+  },
+
+  "optional_field": null,
+
+  "statistics": {
+    "total_users": 15482,
+    "active_sessions": 342,
+    "uptime_percentage": 99.97
+  }
+}

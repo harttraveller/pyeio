@@ -1,0 +1,102 @@
+# Application Configuration
+[app]
+name = "MyApplication"
+version = "1.2.3"
+debug = true
+description = """
+A multi-line string that spans \
+multiple lines with line continuation."""
+
+# Database settings
+[database]
+host = "localhost"
+port = 5432
+name = "myapp_db"
+connection_timeout = 30
+
+[database.credentials]
+username = "admin"
+password = "secret123"
+
+# Server configuration
+[server]
+host = "0.0.0.0"
+port = 8080
+workers = 4
+allowed_hosts = ["localhost", "example.com", "*.example.com"]
+
+# Feature flags
+[features]
+dark_mode = true
+beta_features = false
+max_upload_size = 10_485_760  # underscores for readability
+
+# Metadata with dates and times
+[metadata]
+created = 2024-01-15
+updated = 2024-06-20T10:30:00Z
+author = "dev_team"
+revision = 42
+
+# Array of tables (users)
+[[users]]
+id = 1
+name = "Alice Johnson"
+email = "alice@example.com"
+roles = ["admin", "editor"]
+active = true
+
+[users.profile]
+avatar = "https://example.com/avatars/alice.png"
+bio = "Software engineer and coffee enthusiast."
+
+[users.profile.social]
+twitter = "@alice_dev"
+github = "alicej"
+
+[[users]]
+id = 2
+name = "Bob Smith"
+email = "bob@example.com"
+roles = ["viewer"]
+active = false
+
+# Array of tables (pricing plans)
+[[pricing]]
+plan = "free"
+price = 0.0
+features = ["basic"]
+
+[[pricing]]
+plan = "pro"
+price = 9.99
+features = ["basic", "advanced", "support"]
+
+[[pricing]]
+plan = "enterprise"
+price = 49.99
+features = ["basic", "advanced", "support", "sla"]
+
+# Inline tables
+[notifications]
+email = { enabled = true, frequency = "daily" }
+sms = { enabled = false, frequency = "never" }
+push = { enabled = true, frequency = "instant" }
+
+# Environment-specific overrides
+[environments.development]
+debug = true
+log_level = "debug"
+database_url = "postgres://localhost/myapp_dev"
+
+[environments.production]
+debug = false
+log_level = "warn"
+database_url = "postgres://prod-server/myapp"
+
+# Statistics (integers and floats)
+[statistics]
+total_users = 15482
+active_sessions = 342
+uptime_percentage = 99.97
+average_response_ms = 45.2
