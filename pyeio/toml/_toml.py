@@ -143,7 +143,7 @@ def serialize_pydantic(
 
 def serialize(
     data: TomlSerializable,
-    returns: type[AnyStr] = bytes,
+    returns: type[AnyStr] = str,
     encoding: str = "utf-8",
     **kwargs,
 ) -> AnyStr:

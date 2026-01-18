@@ -44,19 +44,20 @@ if TYPE_CHECKING:
     JsonSerializable: TypeAlias = T_PydanticModel | OrJsonSerializable
     TomlValue: TypeAlias = Any
     TomlSerializable: TypeAlias = Union[PydanticModel, Any]
-    YamlValue: TypeAlias = Union[
+    YamlInputValue: TypeAlias = Union[
         str,
         bool,
         int,
         float,
         NoneType,
         datetime,
-        list["YamlValue"],
-        dict[str, "YamlValue"],
+        list["YamlInputValue"],
+        dict[str, "YamlInputValue"],
         Any,  # if this is left out it drives pylance crazy
     ]
 
-    YamlSerializable: TypeAlias = PydanticModel | YamlValue
+    YamlSerializable: TypeAlias = PydanticModel | YamlInputValue
+    YamlValue: TypeAlias = Any
 
 else:
     ndarray = Any

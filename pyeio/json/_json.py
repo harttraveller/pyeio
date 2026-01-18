@@ -372,7 +372,7 @@ def serialize_pydantic(
 
 def serialize(
     data: JsonSerializable,
-    returns: type[AnyStr] = bytes,
+    returns: type[AnyStr] = str,
     encoding: str = "utf-8",
     indent: bool = False,
     fallback: Callable[[Any], Any] | None = None,

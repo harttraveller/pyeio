@@ -50,7 +50,7 @@ DUMPER_MAP: dict[DumperName, DumperType] = {
 
 
 @overload
-def parse(data: str | bytes, /, *, loader: LoaderName) -> YamlValue: ...
+def parse(data: str | bytes, /, *, loader: LoaderName) -> Any: ...
 @overload
 def parse(
     data: str | bytes,
@@ -73,7 +73,7 @@ def parse(
     by_name: bool | None = None,
     *,
     loader: LoaderName,
-) -> YamlValue | T_PydanticModel:
+) -> Any | T_PydanticModel:
     """
     Parses YAML data into a Python object or validates it against a Pydantic model.
 
@@ -91,7 +91,7 @@ def parse(
         loader (Loader): The name of the YAML loader class to use.
 
     Returns:
-        YamlValue | T_Pydantic: Parsed YAML data as Python objects, or a validated
+        Any | T_Pydantic: Parsed YAML data as Python objects, or a validated
             Pydantic model instance if model is provided.
     """
     parsed_data = yaml.load(data, Loader=LOADER_MAP[loader])
