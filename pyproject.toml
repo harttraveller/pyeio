@@ -9,7 +9,7 @@ repository = "https://github.com/harttraveller/pyeio"
 
 [project]
 name = "pyeio"
-version = "0.2.2"
+version = "0.2.3"
 description = "Easy data input/output utilities."
 readme = "README.md"
 license = "MIT"
