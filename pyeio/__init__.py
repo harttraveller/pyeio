@@ -34,9 +34,14 @@ from pyeio.io import (
 if TYPE_CHECKING:
     from pyeio import (
         json,
+        jsonl,
         toml,
         yaml,
     )
+
+    # aliases
+    from pyeio import jsonl as ndjson
+    from pyeio import yaml as yml
 
 __all__ = [
     # passthrough
@@ -70,6 +75,9 @@ __all__ = [
     "json",
     "toml",
     "yaml",
+    "yml",
+    "jsonl",
+    "ndjson",
 ]
 
 
