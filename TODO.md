@@ -6,7 +6,23 @@
 
 ## Formats
 
+### Unsorted
+
+- ini
+- cbor2
+- parquet
+- npz
+- the data format the sunkcosts used that I forget the name of
+- uml
+- graphml
+- markdown (with parser?)
+
 ### Text Data
+
+
+#### Key value
+
+- dotenv / env
 
 #### Row based with header
 
