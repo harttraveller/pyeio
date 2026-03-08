@@ -1,12 +1,10 @@
 from __future__ import annotations
 
+from collections.abc import Callable, Iterable, Iterator
 from pathlib import Path
 from typing import (
     Any,
     AnyStr,
-    Callable,
-    Iterable,
-    Iterator,
     cast,
     overload,
 )
@@ -21,14 +19,14 @@ from pyeio.annotations import (
 from pyeio.json import serialize as json_serialize
 
 __all__ = [
+    "append",
+    "extend",
     "iter_parse",
     "iter_read",
     "parse",
     "read",
     "serialize",
     "write",
-    "append",
-    "extend",
 ]
 
 
