@@ -85,27 +85,42 @@ _dynamic_imports: dict[str, tuple[str, str]] = {
     "json": (__spec__.parent, "__module__"),
     "toml": (__spec__.parent, "__module__"),
     "yaml": (__spec__.parent, "__module__"),
+    "jsonl": (__spec__.parent, "__module__"),
+}
+
+_aliased_imports: dict[str, str] = {
+    "yml": "yaml",
+    "ndjson": "jsonl",
 }
 
 
 def __getattr__(name: str) -> object:
-    dynamic_attr = _dynamic_imports.get(name)
+    # Resolve aliases first
+    canonical = _aliased_imports.get(name, name)
+
+    dynamic_attr = _dynamic_imports.get(canonical)
     if dynamic_attr is None:
         raise AttributeError(name)
 
     package, module_name = dynamic_attr
 
     if module_name == "__module__":
-        result = import_module(f".{name}", package=package)
-        globals()[name] = result
+        result = import_module(f".{canonical}", package=package)
+        globals()[canonical] = result
+        # Also cache under the alias if accessed that way
+        if name != canonical:
+            globals()[name] = result
         return result
     else:
         module = import_module(module_name, package=package)
-        result = getattr(module, name)
+        result = getattr(module, canonical)
         g = globals()
         for k, (_, v_module_name) in _dynamic_imports.items():
             if v_module_name == module_name:
                 g[k] = getattr(module, k)
+        # Cache alias
+        if name != canonical:
+            g[name] = result
         return result
 
 
